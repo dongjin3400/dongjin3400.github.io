@@ -94,12 +94,12 @@
         filter 0.5s ease;
     }
 
-    /* 카드 전체에 마우스를 올렸을 때 */
+    /* PC 카드 전체에 마우스를 올렸을 때 */
     .cards:hover .card {
       flex: 0.85;
     }
 
-    /* 선택한 카드 */
+    /* PC 선택한 카드 */
     .cards .card:hover {
       flex: 1.35;
 
@@ -122,7 +122,7 @@
         contrast(1.05);
     }
 
-    /* 마우스를 올리지 않은 다른 카드 */
+    /* PC에서 마우스를 올리지 않은 다른 카드 */
     .cards:hover .card:not(:hover) img {
       filter:
         brightness(0.42)
@@ -145,38 +145,83 @@
     }
 
 
-    /* 휴대폰 */
+    /* =========================
+       휴대폰
+    ========================= */
     @media (max-width: 700px) {
 
       .main {
         min-height: 100vh;
-        padding: 25px 18px;
+
+        align-items: flex-start;
+
+        padding: 24px 16px 40px;
+
+        background-position: center top;
+        background-attachment: scroll;
       }
 
       .cards {
+        width: 100%;
+
         height: auto;
         min-height: 0;
+        max-height: none;
 
+        display: flex;
         flex-direction: column;
 
-        gap: 16px;
+        gap: 18px;
       }
 
       .card {
         width: 100%;
-        height: 230px;
+        height: auto;
+
         flex: none;
+
+        overflow: hidden;
+
+        border: 1px solid rgba(160, 170, 255, 0.30);
       }
 
+      .card img {
+        width: 100%;
+        height: auto;
+
+        display: block;
+
+        object-fit: contain;
+
+        filter: brightness(0.90);
+
+        transform: none;
+      }
+
+      /* 휴대폰에서는 PC용 hover 효과 제거 */
       .cards:hover .card,
-      .cards .card:hover {
+      .cards .card:hover,
+      .cards:hover .card:not(:hover) {
         flex: none;
         transform: none;
       }
 
-      .card img {
-        object-position: center;
+      .cards:hover .card img,
+      .cards .card:hover img,
+      .cards:hover .card:not(:hover) img {
+        transform: none;
+        filter: brightness(0.90);
       }
+
+      /* 누를 때만 살짝 반응 */
+      .card:active {
+        transform: scale(0.98);
+      }
+
+      .card:active img {
+        filter: brightness(1.05);
+      }
+
     }
 
   </style>
