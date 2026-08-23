@@ -3,29 +3,1129 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WORLD | 웃음꽃이 피었습니다</title>
+
+  <title>CHARACTERS | 웃음꽃이 피었습니다</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      background: #050611;
+      color: #ffffff;
+    }
+
+    body {
+      font-family: Arial, "Noto Sans KR", sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* =========================
+       전체 배경
+    ========================= */
+
+    .page {
+      min-height: 100vh;
+
+      padding: 55px 40px 80px;
+
+      background:
+        linear-gradient(
+          rgba(3, 5, 15, 0.72),
+          rgba(3, 5, 15, 0.90)
+        ),
+        url("웃음꽃_배경.png");
+
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1450px;
+      margin: 0 auto;
+    }
+
+    /* =========================
+       상단
+    ========================= */
+
+    .top {
+      margin-bottom: 42px;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 42px;
+      letter-spacing: 8px;
+      font-weight: 500;
+
+      text-shadow:
+        0 0 20px rgba(130, 145, 255, 0.45);
+
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      letter-spacing: 4px;
+
+      color: rgba(220, 225, 255, 0.58);
+    }
+
+    /* =========================
+       파트 선택 탭
+    ========================= */
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      gap: 50px;
+
+      margin-bottom: 55px;
+
+      border-bottom: 1px solid rgba(160, 170, 255, 0.15);
+    }
+
+    .tab {
+      position: relative;
+
+      padding: 16px 8px 18px;
+
+      border: none;
+      outline: none;
+
+      background: none;
+      color: rgba(255, 255, 255, 0.48);
+
+      font-size: 15px;
+      letter-spacing: 3px;
+
+      cursor: pointer;
+
+      transition:
+        color 0.3s ease,
+        text-shadow 0.3s ease;
+    }
+
+    .tab::after {
+      content: "";
+
+      position: absolute;
+      left: 50%;
+      bottom: -1px;
+
+      width: 0;
+      height: 2px;
+
+      transform: translateX(-50%);
+
+      background: #b6c0ff;
+
+      box-shadow:
+        0 0 8px rgba(150, 165, 255, 0.9),
+        0 0 18px rgba(100, 120, 255, 0.6);
+
+      transition: width 0.3s ease;
+    }
+
+    .tab:hover {
+      color: #ffffff;
+    }
+
+    .tab.active {
+      color: #ffffff;
+
+      text-shadow:
+        0 0 15px rgba(160, 175, 255, 0.7);
+    }
+
+    .tab.active::after {
+      width: 100%;
+    }
+
+    /* =========================
+       각 파트
+    ========================= */
+
+    .character-section {
+      display: none;
+    }
+
+    .character-section.active {
+      display: block;
+      animation: fadeIn 0.45s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section-header {
+      margin-bottom: 32px;
+    }
+
+    .section-title {
+      font-size: 26px;
+      font-weight: 500;
+      letter-spacing: 6px;
+    }
+
+    .section-line {
+      width: 45px;
+      height: 1px;
+
+      margin-top: 13px;
+
+      background: rgba(170, 185, 255, 0.8);
+
+      box-shadow:
+        0 0 12px rgba(100, 120, 255, 0.7);
+    }
+
+    /* =========================
+       캐릭터 카드
+    ========================= */
+
+    .character-grid {
+      display: grid;
+
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+
+      gap: 32px 24px;
+    }
+
+    .character-card {
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(20, 23, 43, 0.78),
+          rgba(8, 10, 22, 0.92)
+        );
+
+      border: 1px solid rgba(150, 165, 255, 0.18);
+
+      box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.35);
+
+      transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+    }
+
+    .character-card:hover {
+      transform: translateY(-7px);
+
+      border-color: rgba(160, 175, 255, 0.55);
+
+      box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.5),
+        0 0 25px rgba(80, 100, 255, 0.16);
+    }
+
+    .profile-button {
+      width: 100%;
+
+      display: block;
+
+      border: none;
+      background: none;
+
+      padding: 0;
+
+      cursor: zoom-in;
+
+      overflow: hidden;
+    }
+
+    .profile-image {
+      width: 100%;
+
+      aspect-ratio: 2 / 3;
+
+      display: block;
+
+      object-fit: cover;
+      object-position: center top;
+
+      filter:
+        brightness(0.88)
+        saturate(0.92);
+
+      transition:
+        transform 0.5s ease,
+        filter 0.4s ease;
+    }
+
+    .character-card:hover .profile-image {
+      transform: scale(1.025);
+
+      filter:
+        brightness(1)
+        saturate(1);
+    }
+
+    /* =========================
+       캐릭터 정보
+    ========================= */
+
+    .character-info {
+      padding: 19px 18px 21px;
+    }
+
+    .character-name {
+      font-size: 22px;
+      font-weight: 600;
+
+      letter-spacing: 2px;
+
+      margin-bottom: 11px;
+    }
+
+    .character-meta {
+      color: rgba(205, 213, 255, 0.72);
+
+      font-size: 13px;
+
+      margin-bottom: 9px;
+
+      letter-spacing: 0.4px;
+    }
+
+    .character-personality {
+      color: rgba(255, 255, 255, 0.70);
+
+      font-size: 13px;
+
+      line-height: 1.7;
+    }
+
+    /* =========================
+       아직 제작 전인 파트
+    ========================= */
+
+    .empty-section {
+      min-height: 350px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border: 1px solid rgba(160, 170, 255, 0.12);
+
+      background: rgba(5, 7, 18, 0.35);
+
+      color: rgba(255, 255, 255, 0.35);
+
+      font-size: 13px;
+      letter-spacing: 4px;
+    }
+
+    /* =========================
+       이미지 확대 모달
+    ========================= */
+
+    .modal {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 9999;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 35px;
+
+      background: rgba(0, 0, 0, 0.91);
+
+      backdrop-filter: blur(8px);
+
+      opacity: 0;
+      visibility: hidden;
+
+      transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+    }
+
+    .modal.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      position: relative;
+
+      max-width: 90vw;
+      max-height: 92vh;
+    }
+
+    .modal-image {
+      display: block;
+
+      max-width: 90vw;
+      max-height: 88vh;
+
+      width: auto;
+      height: auto;
+
+      object-fit: contain;
+
+      box-shadow:
+        0 0 45px rgba(80, 100, 255, 0.22),
+        0 25px 70px rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-close {
+      position: absolute;
+
+      top: -42px;
+      right: 0;
+
+      border: none;
+      background: none;
+
+      color: rgba(255, 255, 255, 0.75);
+
+      font-size: 31px;
+      font-weight: 300;
+
+      cursor: pointer;
+
+      transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .modal-close:hover {
+      color: #ffffff;
+      transform: scale(1.08);
+    }
+
+    /* =========================
+       태블릿
+    ========================= */
+
+    @media (max-width: 1050px) {
+
+      .page {
+        padding: 45px 28px 70px;
+      }
+
+      .character-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 28px 22px;
+      }
+
+    }
+
+    /* =========================
+       휴대폰
+    ========================= */
+
+    @media (max-width: 700px) {
+
+      .page {
+        padding: 30px 15px 55px;
+
+        background-attachment: scroll;
+        background-position: center top;
+      }
+
+      .top {
+        margin-bottom: 28px;
+      }
+
+      .title {
+        font-size: 28px;
+        letter-spacing: 5px;
+      }
+
+      .subtitle {
+        font-size: 10px;
+        letter-spacing: 2.5px;
+      }
+
+      .tabs {
+        width: 100%;
+
+        justify-content: space-between;
+
+        gap: 0;
+
+        margin-bottom: 38px;
+      }
+
+      .tab {
+        flex: 1;
+
+        padding: 13px 3px 15px;
+
+        font-size: 11px;
+        letter-spacing: 1px;
+      }
+
+      .section-header {
+        margin-bottom: 22px;
+      }
+
+      .section-title {
+        font-size: 21px;
+        letter-spacing: 4px;
+      }
+
+      /* 모바일 한 줄에 한 명 */
+      .character-grid {
+        grid-template-columns: 1fr;
+
+        gap: 28px;
+      }
+
+      .character-card {
+        width: 100%;
+      }
+
+      .character-card:hover {
+        transform: none;
+      }
+
+      .character-info {
+        padding: 18px 17px 20px;
+      }
+
+      .character-name {
+        font-size: 21px;
+      }
+
+      .character-meta,
+      .character-personality {
+        font-size: 13px;
+      }
+
+      .modal {
+        padding: 18px;
+      }
+
+      .modal-image {
+        max-width: 94vw;
+        max-height: 84vh;
+      }
+
+    }
+
+  </style>
 </head>
 
-<body style="
-  margin:0;
-  background:#050611;
-  color:white;
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-family:Arial;
-">
+<body>
 
-  <div style="text-align:center;">
-    <h1>WORLD</h1>
-    <p>준비 중입니다.</p>
+  <div class="page">
 
-    <a href="index.html"
-       style="color:#9aaaff;">
-       ← 돌아가기
-    </a>
+    <div class="container">
+
+      <header class="top">
+        <h1 class="title">CHARACTERS</h1>
+        <p class="subtitle">웃음꽃이 피었습니다</p>
+      </header>
+
+
+      <!-- 파트 선택 -->
+      <nav class="tabs">
+
+        <button
+          class="tab active"
+          data-target="echev">
+          ECHEV
+        </button>
+
+        <button
+          class="tab"
+          data-target="backstage">
+          BACKSTAGE
+        </button>
+
+        <button
+          class="tab"
+          data-target="paradise">
+          실낙원
+        </button>
+
+      </nav>
+
+
+      <!-- =========================
+           ECHEV
+      ========================== -->
+
+      <section
+        id="echev"
+        class="character-section active">
+
+        <div class="section-header">
+          <h2 class="section-title">ECHEV</h2>
+          <div class="section-line"></div>
+        </div>
+
+
+        <div class="character-grid">
+
+
+          <!-- 곽두식 -->
+          <article class="character-card">
+
+            <button
+              class="profile-button"
+              data-image="곽두식_프로필.png"
+              data-name="곽두식">
+
+              <img
+                class="profile-image"
+                src="곽두식_프로필.png"
+                alt="곽두식 프로필"
+                loading="lazy">
+
+            </button>
+
+            <div class="character-info">
+
+              <h3 class="character-name">
+                곽두식
+              </h3>
+
+              <p class="character-meta">
+                남 / 전투 · ENFP
+              </p>
+
+              <p class="character-personality">
+                호탕함 · 개방적 · 이상적
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- 타라 -->
+          <article class="character-card">
+
+            <button
+              class="profile-button"
+              data-image="타라_프로필.png"
+              data-name="타라">
+
+              <img
+                class="profile-image"
+                src="타라_프로필.png"
+                alt="타라 프로필"
+                loading="lazy">
+
+            </button>
+
+            <div class="character-info">
+
+              <h3 class="character-name">
+                타라
+              </h3>
+
+              <p class="character-meta">
+                여 / 전략 · ESTP
+              </p>
+
+              <p class="character-personality">
+                호쾌 · 쿨녀 · 호탕함
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- 레미 -->
+          <article class="character-card">
+
+            <button
+              class="profile-button"
+              data-image="레미_프로필.png"
+              data-name="레미">
+
+              <img
+                class="profile-image"
+                src="레미_프로필.png"
+                alt="레미 프로필"
+                loading="lazy">
+
+            </button>
+
+            <div class="character-info">
+
+              <h3 class="character-name">
+                레미
+              </h3>
+
+              <p class="character-meta">
+                여 / 전투 · INFJ
+              </p>
+
+              <p class="character-personality">
+                냉철 · 피폐 · 츤데레
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- 제라 -->
+          <article class="character-card">
+
+            <button
+              class="profile-button"
+              data-image="제라_프로필.png"
+              data-name="제라">
+
+              <img
+                class="profile-image"
+                src="제라_프로필.png"
+                alt="제라 프로필"
+                loading="lazy">
+
+            </button>
+
+            <div class="character-info">
+
+              <h3 class="character-name">
+                제라
+              </h3>
+
+              <p class="character-meta">
+                여 / 전략 · ENFP
+              </p>
+
+              <p class="character-personality">
+                생기 · 활발 · 긍정적
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- 아메 -->
+          <article class="character-card">
+
+            <button
+              class="profile-button"
+              data-image="아메_프로필.png"
+              data-name="아메">
+
+              <img
+                class="profile-image"
+                src="아메_프로필.png"
+                alt="아메 프로필"
+                loading="lazy">
+
+            </button>
+
+            <div class="character-info">
+
+              <h3 class="character-name">
+                아메
+              </h3>
+
+              <p class="character-meta">
+                여 / 전투 · ISTJ
+              </p>
+
+              <p class="character-personality">
+                침착 · 무감정 · 차분
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- 블 -->
+          <article class="character-card">
+
+            <button
+              class="profile-button"
+              data-image="블_프로필.png"
+              data-name="블">
+
+              <img
+                class="profile-image"
+                src="블_프로필.png"
+                alt="블 프로필"
+                loading="lazy">
+
+            </button>
+
+            <div class="character-info">
+
+              <h3 class="character-name">
+                블
+              </h3>
+
+              <p class="character-meta">
+                남 / 두뇌·전략 · ISTJ
+              </p>
+
+              <p class="character-personality">
+                따뜻함 · 온화함 · 이중적
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- 마리 -->
+          <article class="character-card">
+
+            <button
+              class="profile-button"
+              data-image="마리_프로필.png"
+              data-name="마리">
+
+              <img
+                class="profile-image"
+                src="마리_프로필.png"
+                alt="마리 프로필"
+                loading="lazy">
+
+            </button>
+
+            <div class="character-info">
+
+              <h3 class="character-name">
+                마리
+              </h3>
+
+              <p class="character-meta">
+                여 / 치유·재생 · ENFP
+              </p>
+
+              <p class="character-personality">
+                겁많음 · 온화함 · 얀데레
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- 장 -->
+          <article class="character-card">
+
+            <button
+              class="profile-button"
+              data-image="장_프로필.png"
+              data-name="장">
+
+              <img
+                class="profile-image"
+                src="장_프로필.png"
+                alt="장 프로필"
+                loading="lazy">
+
+            </button>
+
+            <div class="character-info">
+
+              <h3 class="character-name">
+                장
+              </h3>
+
+              <p class="character-meta">
+                남 / 전투 · ISTJ
+              </p>
+
+              <p class="character-personality">
+                침착 · 냉혹 · 비판적
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- 발 -->
+          <article class="character-card">
+
+            <button
+              class="profile-button"
+              data-image="발_프로필.png"
+              data-name="발">
+
+              <img
+                class="profile-image"
+                src="발_프로필.png"
+                alt="발 프로필"
+                loading="lazy">
+
+            </button>
+
+            <div class="character-info">
+
+              <h3 class="character-name">
+                발
+              </h3>
+
+              <p class="character-meta">
+                남 / 전투 · ENFP
+              </p>
+
+              <p class="character-personality">
+                온화 · 다정다감 · 소심
+              </p>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =========================
+           BACKSTAGE
+      ========================== -->
+
+      <section
+        id="backstage"
+        class="character-section">
+
+        <div class="section-header">
+
+          <h2 class="section-title">
+            BACKSTAGE
+          </h2>
+
+          <div class="section-line"></div>
+
+        </div>
+
+        <div class="empty-section">
+          COMING SOON
+        </div>
+
+      </section>
+
+
+
+      <!-- =========================
+           실낙원
+      ========================== -->
+
+      <section
+        id="paradise"
+        class="character-section">
+
+        <div class="section-header">
+
+          <h2 class="section-title">
+            실낙원
+          </h2>
+
+          <div class="section-line"></div>
+
+        </div>
+
+        <div class="empty-section">
+          COMING SOON
+        </div>
+
+      </section>
+
+
+    </div>
+
   </div>
+
+
+  <!-- =========================
+       확대 이미지
+  ========================== -->
+
+  <div
+    class="modal"
+    id="imageModal">
+
+    <div class="modal-content">
+
+      <button
+        class="modal-close"
+        id="modalClose"
+        aria-label="닫기">
+        ×
+      </button>
+
+      <img
+        class="modal-image"
+        id="modalImage"
+        src=""
+        alt="확대 프로필">
+
+    </div>
+
+  </div>
+
+
+
+  <script>
+
+    /* =========================
+       파트 탭
+    ========================== */
+
+    const tabs =
+      document.querySelectorAll(".tab");
+
+    const sections =
+      document.querySelectorAll(".character-section");
+
+
+    tabs.forEach(tab => {
+
+      tab.addEventListener("click", () => {
+
+        const target =
+          tab.dataset.target;
+
+
+        tabs.forEach(item => {
+          item.classList.remove("active");
+        });
+
+
+        sections.forEach(section => {
+          section.classList.remove("active");
+        });
+
+
+        tab.classList.add("active");
+
+        document
+          .getElementById(target)
+          .classList.add("active");
+
+      });
+
+    });
+
+
+
+    /* =========================
+       이미지 확대
+    ========================== */
+
+    const profileButtons =
+      document.querySelectorAll(".profile-button");
+
+    const modal =
+      document.getElementById("imageModal");
+
+    const modalImage =
+      document.getElementById("modalImage");
+
+    const modalClose =
+      document.getElementById("modalClose");
+
+
+    profileButtons.forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        modalImage.src =
+          button.dataset.image;
+
+        modalImage.alt =
+          button.dataset.name + " 확대 프로필";
+
+        modal.classList.add("open");
+
+        document.body.style.overflow =
+          "hidden";
+
+      });
+
+    });
+
+
+    function closeModal() {
+
+      modal.classList.remove("open");
+
+      document.body.style.overflow =
+        "";
+
+    }
+
+
+    modalClose.addEventListener(
+      "click",
+      closeModal
+    );
+
+
+    modal.addEventListener(
+      "click",
+      event => {
+
+        if (event.target === modal) {
+          closeModal();
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (event.key === "Escape") {
+          closeModal();
+        }
+
+      }
+    );
+
+  </script>
 
 </body>
 </html>
