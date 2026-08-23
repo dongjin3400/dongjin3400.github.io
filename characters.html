@@ -54,6 +54,50 @@
     }
 
     /* =========================
+       메인으로 돌아가기
+    ========================= */
+
+    .back-button {
+      position: fixed;
+
+      top: 28px;
+      left: 30px;
+
+      z-index: 100;
+
+      color: rgba(255, 255, 255, 0.68);
+
+      text-decoration: none;
+
+      font-size: 13px;
+      letter-spacing: 3px;
+
+      padding: 10px 14px;
+
+      border: 1px solid rgba(160, 170, 255, 0.22);
+
+      background: rgba(5, 7, 18, 0.48);
+
+      backdrop-filter: blur(6px);
+
+      transition:
+        color 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .back-button:hover {
+      color: #ffffff;
+
+      border-color: rgba(160, 175, 255, 0.65);
+
+      background: rgba(20, 24, 50, 0.70);
+
+      transform: translateX(-3px);
+    }
+
+    /* =========================
        상단
     ========================= */
 
@@ -321,7 +365,7 @@
     }
 
     /* =========================
-       아직 제작 전인 파트
+       아직 제작 전 파트
     ========================= */
 
     .empty-section {
@@ -407,9 +451,9 @@
       border: none;
       background: none;
 
-      color: rgba(255, 255, 255, 0.75);
+      color: rgba(255, 255, 255, 0.80);
 
-      font-size: 31px;
+      font-size: 34px;
       font-weight: 300;
 
       cursor: pointer;
@@ -449,10 +493,22 @@
     @media (max-width: 700px) {
 
       .page {
-        padding: 30px 15px 55px;
+        padding: 68px 15px 55px;
 
         background-attachment: scroll;
         background-position: center top;
+      }
+
+      .back-button {
+        position: absolute;
+
+        top: 15px;
+        left: 15px;
+
+        padding: 8px 10px;
+
+        font-size: 10px;
+        letter-spacing: 2px;
       }
 
       .top {
@@ -529,9 +585,20 @@
         padding: 18px;
       }
 
+      .modal-content {
+        max-width: 94vw;
+        max-height: 88vh;
+      }
+
       .modal-image {
         max-width: 94vw;
-        max-height: 84vh;
+        max-height: 82vh;
+      }
+
+      .modal-close {
+        top: -38px;
+        right: 2px;
+        font-size: 32px;
       }
 
     }
@@ -542,6 +609,12 @@
 <body>
 
   <div class="page">
+
+    <!-- 메인으로 돌아가기 -->
+    <a href="index.html" class="back-button">
+      ← BACK
+    </a>
+
 
     <div class="container">
 
@@ -609,10 +682,7 @@
             </button>
 
             <div class="character-info">
-
-              <h3 class="character-name">
-                곽두식
-              </h3>
+              <h3 class="character-name">곽두식</h3>
 
               <p class="character-meta">
                 남 / 전투 · ENFP
@@ -621,11 +691,9 @@
               <p class="character-personality">
                 호탕함 · 개방적 · 이상적
               </p>
-
             </div>
 
           </article>
-
 
 
           <!-- 타라 -->
@@ -645,10 +713,7 @@
             </button>
 
             <div class="character-info">
-
-              <h3 class="character-name">
-                타라
-              </h3>
+              <h3 class="character-name">타라</h3>
 
               <p class="character-meta">
                 여 / 전략 · ESTP
@@ -657,11 +722,9 @@
               <p class="character-personality">
                 호쾌 · 쿨녀 · 호탕함
               </p>
-
             </div>
 
           </article>
-
 
 
           <!-- 레미 -->
@@ -681,10 +744,7 @@
             </button>
 
             <div class="character-info">
-
-              <h3 class="character-name">
-                레미
-              </h3>
+              <h3 class="character-name">레미</h3>
 
               <p class="character-meta">
                 여 / 전투 · INFJ
@@ -693,11 +753,9 @@
               <p class="character-personality">
                 냉철 · 피폐 · 츤데레
               </p>
-
             </div>
 
           </article>
-
 
 
           <!-- 제라 -->
@@ -717,10 +775,7 @@
             </button>
 
             <div class="character-info">
-
-              <h3 class="character-name">
-                제라
-              </h3>
+              <h3 class="character-name">제라</h3>
 
               <p class="character-meta">
                 여 / 전략 · ENFP
@@ -729,11 +784,9 @@
               <p class="character-personality">
                 생기 · 활발 · 긍정적
               </p>
-
             </div>
 
           </article>
-
 
 
           <!-- 아메 -->
@@ -753,10 +806,7 @@
             </button>
 
             <div class="character-info">
-
-              <h3 class="character-name">
-                아메
-              </h3>
+              <h3 class="character-name">아메</h3>
 
               <p class="character-meta">
                 여 / 전투 · ISTJ
@@ -765,11 +815,9 @@
               <p class="character-personality">
                 침착 · 무감정 · 차분
               </p>
-
             </div>
 
           </article>
-
 
 
           <!-- 블 -->
@@ -789,10 +837,7 @@
             </button>
 
             <div class="character-info">
-
-              <h3 class="character-name">
-                블
-              </h3>
+              <h3 class="character-name">블</h3>
 
               <p class="character-meta">
                 남 / 두뇌·전략 · ISTJ
@@ -801,11 +846,9 @@
               <p class="character-personality">
                 따뜻함 · 온화함 · 이중적
               </p>
-
             </div>
 
           </article>
-
 
 
           <!-- 마리 -->
@@ -825,10 +868,7 @@
             </button>
 
             <div class="character-info">
-
-              <h3 class="character-name">
-                마리
-              </h3>
+              <h3 class="character-name">마리</h3>
 
               <p class="character-meta">
                 여 / 치유·재생 · ENFP
@@ -837,11 +877,9 @@
               <p class="character-personality">
                 겁많음 · 온화함 · 얀데레
               </p>
-
             </div>
 
           </article>
-
 
 
           <!-- 장 -->
@@ -861,10 +899,7 @@
             </button>
 
             <div class="character-info">
-
-              <h3 class="character-name">
-                장
-              </h3>
+              <h3 class="character-name">장</h3>
 
               <p class="character-meta">
                 남 / 전투 · ISTJ
@@ -873,11 +908,9 @@
               <p class="character-personality">
                 침착 · 냉혹 · 비판적
               </p>
-
             </div>
 
           </article>
-
 
 
           <!-- 발 -->
@@ -897,10 +930,7 @@
             </button>
 
             <div class="character-info">
-
-              <h3 class="character-name">
-                발
-              </h3>
+              <h3 class="character-name">발</h3>
 
               <p class="character-meta">
                 남 / 전투 · ENFP
@@ -909,7 +939,6 @@
               <p class="character-personality">
                 온화 · 다정다감 · 소심
               </p>
-
             </div>
 
           </article>
@@ -918,7 +947,6 @@
         </div>
 
       </section>
-
 
 
       <!-- =========================
@@ -944,7 +972,6 @@
         </div>
 
       </section>
-
 
 
       <!-- =========================
@@ -1005,7 +1032,6 @@
   </div>
 
 
-
   <script>
 
     /* =========================
@@ -1026,16 +1052,13 @@
         const target =
           tab.dataset.target;
 
-
         tabs.forEach(item => {
           item.classList.remove("active");
         });
 
-
         sections.forEach(section => {
           section.classList.remove("active");
         });
-
 
         tab.classList.add("active");
 
@@ -1046,7 +1069,6 @@
       });
 
     });
-
 
 
     /* =========================
@@ -1093,15 +1115,21 @@
       document.body.style.overflow =
         "";
 
+      setTimeout(() => {
+        modalImage.src = "";
+      }, 250);
+
     }
 
 
+    /* X 버튼 클릭 */
     modalClose.addEventListener(
       "click",
       closeModal
     );
 
 
+    /* 검은 배경 클릭 */
     modal.addEventListener(
       "click",
       event => {
@@ -1114,11 +1142,15 @@
     );
 
 
+    /* ESC 키 */
     document.addEventListener(
       "keydown",
       event => {
 
-        if (event.key === "Escape") {
+        if (
+          event.key === "Escape" &&
+          modal.classList.contains("open")
+        ) {
           closeModal();
         }
 
