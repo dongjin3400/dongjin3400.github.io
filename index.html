@@ -39,7 +39,7 @@
           rgba(3, 5, 15, 0.30),
           rgba(3, 5, 15, 0.55)
         ),
-        url("웃음꽃_배경.png?v=2");
+        url("웃음꽃_배경.png?v=3");
 
       background-size: cover;
       background-position: center;
@@ -94,6 +94,55 @@
         filter 0.5s ease;
     }
 
+    /* =========================
+       카드 제목
+    ========================= */
+
+    .card-title {
+      position: absolute;
+
+      left: 50%;
+
+      z-index: 10;
+
+      transform: translateX(-50%);
+
+      color: rgba(255, 255, 255, 0.96);
+
+      font-size: clamp(22px, 2.2vw, 34px);
+      font-weight: 400;
+
+      letter-spacing: 7px;
+
+      white-space: nowrap;
+
+      pointer-events: none;
+
+      text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.75),
+        0 0 18px rgba(255, 255, 255, 0.25);
+
+      transition:
+        transform 0.4s ease,
+        letter-spacing 0.4s ease,
+        text-shadow 0.4s ease;
+    }
+
+    /* 이미지 구도에 맞춘 제목 위치 */
+
+    .world-card .card-title {
+      top: 18%;
+    }
+
+    .characters-card .card-title {
+      top: 80%;
+    }
+
+    .webtoon-card .card-title {
+      top: 17%;
+    }
+
+
     /* PC 카드 전체에 마우스를 올렸을 때 */
     .cards:hover .card {
       flex: 0.85;
@@ -122,6 +171,18 @@
         contrast(1.05);
     }
 
+    .cards .card:hover .card-title {
+      transform:
+        translateX(-50%)
+        scale(1.06);
+
+      letter-spacing: 8px;
+
+      text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.85),
+        0 0 24px rgba(255, 255, 255, 0.45);
+    }
+
     /* PC에서 마우스를 올리지 않은 다른 카드 */
     .cards:hover .card:not(:hover) img {
       filter:
@@ -130,7 +191,10 @@
     }
 
 
-    /* 태블릿 */
+    /* =========================
+       태블릿
+    ========================= */
+
     @media (max-width: 1000px) {
 
       .main {
@@ -142,12 +206,18 @@
         gap: 14px;
       }
 
+      .card-title {
+        font-size: 22px;
+        letter-spacing: 5px;
+      }
+
     }
 
 
     /* =========================
        휴대폰
     ========================= */
+
     @media (max-width: 700px) {
 
       .main {
@@ -198,7 +268,25 @@
         transform: none;
       }
 
-      /* 휴대폰에서는 PC용 hover 효과 제거 */
+      .card-title {
+        font-size: 24px;
+        letter-spacing: 5px;
+      }
+
+      /* 모바일에서도 이미지 구도 유지 */
+      .world-card .card-title {
+        top: 17%;
+      }
+
+      .characters-card .card-title {
+        top: 80%;
+      }
+
+      .webtoon-card .card-title {
+        top: 16%;
+      }
+
+      /* 모바일에서는 PC hover 효과 제거 */
       .cards:hover .card,
       .cards .card:hover,
       .cards:hover .card:not(:hover) {
@@ -213,7 +301,12 @@
         filter: brightness(0.90);
       }
 
-      /* 누를 때만 살짝 반응 */
+      .cards .card:hover .card-title {
+        transform: translateX(-50%);
+        letter-spacing: 5px;
+      }
+
+      /* 누를 때만 반응 */
       .card:active {
         transform: scale(0.98);
       }
@@ -227,31 +320,61 @@
   </style>
 </head>
 
+
 <body>
 
   <main class="main">
 
     <div class="cards">
 
-      <a class="card" href="world.html">
+
+      <!-- WORLD -->
+      <a
+        class="card world-card"
+        href="world.html">
+
         <img
-          src="웃음꽃_월드.png"
+          src="웃음꽃_월드.png?v=3"
           alt="WORLD">
+
+        <div class="card-title">
+          WORLD
+        </div>
+
       </a>
 
 
-      <a class="card" href="characters.html">
+      <!-- CHARACTERS -->
+      <a
+        class="card characters-card"
+        href="characters.html">
+
         <img
-          src="웃음꽃_캐릭터.png"
+          src="웃음꽃_캐릭터.png?v=3"
           alt="CHARACTERS">
+
+        <div class="card-title">
+          CHARACTERS
+        </div>
+
       </a>
 
 
-      <a class="card" href="webtoon.html">
+      <!-- WEBTOON -->
+      <a
+        class="card webtoon-card"
+        href="webtoon.html">
+
         <img
-          src="웃음꽃_웹툰.png"
+          src="웃음꽃_웹툰.png?v=3"
           alt="WEBTOON">
+
+        <div class="card-title">
+          WEBTOON
+        </div>
+
       </a>
+
 
     </div>
 
