@@ -128,27 +128,28 @@
         text-shadow 0.4s ease;
     }
 
-    /* 이미지 구도에 맞춘 제목 위치 */
-
-    .world-card .card-title {
-      top: 18%;
-    }
+    /* 각 이미지 구도에 맞춘 글자 위치 */
 
     .characters-card .card-title {
       top: 80%;
+    }
+
+    .world-card .card-title {
+      top: 18%;
     }
 
     .webtoon-card .card-title {
       top: 17%;
     }
 
+    /* =========================
+       PC hover 효과
+    ========================= */
 
-    /* PC 카드 전체에 마우스를 올렸을 때 */
     .cards:hover .card {
       flex: 0.85;
     }
 
-    /* PC 선택한 카드 */
     .cards .card:hover {
       flex: 1.35;
 
@@ -183,13 +184,12 @@
         0 0 24px rgba(255, 255, 255, 0.45);
     }
 
-    /* PC에서 마우스를 올리지 않은 다른 카드 */
+    /* 선택하지 않은 카드 어둡게 */
     .cards:hover .card:not(:hover) img {
       filter:
         brightness(0.42)
         saturate(0.75);
     }
-
 
     /* =========================
        태블릿
@@ -213,9 +213,8 @@
 
     }
 
-
     /* =========================
-       휴대폰
+       모바일
     ========================= */
 
     @media (max-width: 700px) {
@@ -269,17 +268,18 @@
       }
 
       .card-title {
-        font-size: 24px;
-        letter-spacing: 5px;
+        font-size: clamp(19px, 6vw, 24px);
+        letter-spacing: 4px;
       }
 
-      /* 모바일에서도 이미지 구도 유지 */
-      .world-card .card-title {
-        top: 17%;
-      }
+      /* 모바일에서도 이미지별 글자 위치 유지 */
 
       .characters-card .card-title {
         top: 80%;
+      }
+
+      .world-card .card-title {
+        top: 17%;
       }
 
       .webtoon-card .card-title {
@@ -287,6 +287,7 @@
       }
 
       /* 모바일에서는 PC hover 효과 제거 */
+
       .cards:hover .card,
       .cards .card:hover,
       .cards:hover .card:not(:hover) {
@@ -303,10 +304,11 @@
 
       .cards .card:hover .card-title {
         transform: translateX(-50%);
-        letter-spacing: 5px;
+        letter-spacing: 4px;
       }
 
-      /* 누를 때만 반응 */
+      /* 터치했을 때만 살짝 반응 */
+
       .card:active {
         transform: scale(0.98);
       }
@@ -328,23 +330,10 @@
     <div class="cards">
 
 
-      <!-- WORLD -->
-      <a
-        class="card world-card"
-        href="world.html">
+      <!-- =========================
+           CHARACTERS
+      ========================= -->
 
-        <img
-          src="웃음꽃_월드.png?v=3"
-          alt="WORLD">
-
-        <div class="card-title">
-          WORLD
-        </div>
-
-      </a>
-
-
-      <!-- CHARACTERS -->
       <a
         class="card characters-card"
         href="characters.html">
@@ -360,7 +349,29 @@
       </a>
 
 
-      <!-- WEBTOON -->
+      <!-- =========================
+           WORLD
+      ========================= -->
+
+      <a
+        class="card world-card"
+        href="world.html">
+
+        <img
+          src="웃음꽃_월드.png?v=3"
+          alt="WORLD">
+
+        <div class="card-title">
+          WORLD
+        </div>
+
+      </a>
+
+
+      <!-- =========================
+           WEBTOON
+      ========================= -->
+
       <a
         class="card webtoon-card"
         href="webtoon.html">
