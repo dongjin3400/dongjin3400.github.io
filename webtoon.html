@@ -3,28 +3,327 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WORLD | 웃음꽃이 피었습니다</title>
+
+  <title>WEBTOON | 웃음꽃이 피었습니다</title>
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+
+      background: #000000;
+    }
+
+    body {
+      font-family:
+        Arial,
+        "Noto Sans KR",
+        sans-serif;
+
+      overflow-x: hidden;
+    }
+
+
+    /* =========================
+       전체 페이지
+    ========================= */
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+
+      background: #000000;
+    }
+
+
+    /* =========================
+       메인으로 돌아가기
+    ========================= */
+
+    .back-button {
+      position: fixed;
+
+      top: 24px;
+      left: 24px;
+
+      z-index: 1000;
+
+      padding: 10px 14px;
+
+      color: rgba(255, 255, 255, 0.72);
+
+      text-decoration: none;
+
+      font-size: 12px;
+      letter-spacing: 3px;
+
+      background:
+        rgba(0, 0, 0, 0.65);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.20);
+
+      backdrop-filter: blur(8px);
+
+      transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .back-button:hover {
+      color: #ffffff;
+
+      background:
+        rgba(25, 25, 25, 0.90);
+
+      border-color:
+        rgba(255, 255, 255, 0.55);
+
+      transform:
+        translateX(-3px);
+    }
+
+
+    /* =========================
+       웹툰 전체
+    ========================= */
+
+    .webtoon-container {
+      width: 100%;
+
+      max-width: 800px;
+
+      margin:
+        0 auto;
+
+      background:
+        #000000;
+    }
+
+
+    /* =========================
+       웹툰 이미지
+    ========================= */
+
+    .webtoon-image {
+      width: 100%;
+      height: auto;
+
+      display: block;
+
+      margin: 0;
+      padding: 0;
+
+      border: none;
+
+      vertical-align: top;
+    }
+
+
+    /* =========================
+       작품 끝
+    ========================= */
+
+    .ending {
+      width: 100%;
+
+      padding:
+        100px
+        20px
+        120px;
+
+      text-align: center;
+
+      background:
+        #000000;
+
+      color:
+        rgba(255, 255, 255, 0.35);
+
+      font-size: 11px;
+
+      letter-spacing: 5px;
+    }
+
+
+    /* =========================
+       모바일
+    ========================= */
+
+    @media (max-width: 700px) {
+
+      .webtoon-container {
+        width: 100%;
+        max-width: none;
+      }
+
+      .back-button {
+        top: 12px;
+        left: 12px;
+
+        padding:
+          8px
+          10px;
+
+        font-size:
+          10px;
+
+        letter-spacing:
+          2px;
+
+        background:
+          rgba(0, 0, 0, 0.72);
+      }
+
+      .ending {
+        padding:
+          70px
+          15px
+          90px;
+
+        font-size:
+          9px;
+
+        letter-spacing:
+          4px;
+      }
+
+    }
+
+  </style>
 </head>
 
-<body style="
-  margin:0;
-  background:#050611;
-  color:white;
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-family:Arial;
-">
 
-  <div style="text-align:center;">
-    <h1>WORLD</h1>
-    <p>준비 중입니다.</p>
+<body>
 
-    <a href="index.html"
-       style="color:#9aaaff;">
-       ← 돌아가기
+  <div class="page">
+
+
+    <!-- 메인 화면으로 돌아가기 -->
+
+    <a
+      href="index.html"
+      class="back-button">
+      ← BACK
     </a>
+
+
+    <!-- =========================
+         WEBTOON
+    ========================= -->
+
+    <main class="webtoon-container">
+
+
+      <!-- 1 -->
+
+      <img
+        class="webtoon-image"
+        src="웹툰_1.png?v=1"
+        alt="웃음꽃이 피었습니다 웹툰 1">
+
+
+      <!-- 2 -->
+
+      <img
+        class="webtoon-image"
+        src="웹툰_2.png?v=1"
+        alt="웃음꽃이 피었습니다 웹툰 2"
+        loading="lazy">
+
+
+      <!-- 3 -->
+
+      <img
+        class="webtoon-image"
+        src="웹툰_3.png?v=1"
+        alt="웃음꽃이 피었습니다 웹툰 3"
+        loading="lazy">
+
+
+      <!-- 4 -->
+
+      <img
+        class="webtoon-image"
+        src="웹툰_4.png?v=1"
+        alt="웃음꽃이 피었습니다 웹툰 4"
+        loading="lazy">
+
+
+      <!-- 5 -->
+
+      <img
+        class="webtoon-image"
+        src="웹툰_5.png?v=1"
+        alt="웃음꽃이 피었습니다 웹툰 5"
+        loading="lazy">
+
+
+      <!-- 6 -->
+
+      <img
+        class="webtoon-image"
+        src="웹툰_6.png?v=1"
+        alt="웃음꽃이 피었습니다 웹툰 6"
+        loading="lazy">
+
+
+      <!-- 7 -->
+
+      <img
+        class="webtoon-image"
+        src="웹툰_7.png?v=1"
+        alt="웃음꽃이 피었습니다 웹툰 7"
+        loading="lazy">
+
+
+      <!-- 8 -->
+
+      <img
+        class="webtoon-image"
+        src="웹툰_8.png?v=1"
+        alt="웃음꽃이 피었습니다 웹툰 8"
+        loading="lazy">
+
+
+      <!-- 9 -->
+
+      <img
+        class="webtoon-image"
+        src="웹툰_9.png?v=1"
+        alt="웃음꽃이 피었습니다 웹툰 9"
+        loading="lazy">
+
+
+      <!-- 10 -->
+
+      <img
+        class="webtoon-image"
+        src="웹툰_10.png?v=1"
+        alt="웃음꽃이 피었습니다 웹툰 10"
+        loading="lazy">
+
+
+    </main>
+
+
+    <!-- 작품 끝 -->
+
+    <footer class="ending">
+      웃음꽃이 피었습니다
+    </footer>
+
+
   </div>
 
 </body>
