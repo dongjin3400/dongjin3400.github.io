@@ -26,9 +26,10 @@
       overflow-x: hidden;
     }
 
-    /* =========================
-       전체 배경
-    ========================= */
+
+    /* ========================================
+       전체 페이지
+    ======================================== */
 
     .page {
       min-height: 100vh;
@@ -40,7 +41,7 @@
           rgba(3, 5, 15, 0.72),
           rgba(3, 5, 15, 0.90)
         ),
-        url("웃음꽃_배경.png?v=2");
+        url("웃음꽃_배경.png?v=3");
 
       background-size: cover;
       background-position: center;
@@ -53,9 +54,10 @@
       margin: 0 auto;
     }
 
-    /* =========================
-       메인으로 돌아가기
-    ========================= */
+
+    /* ========================================
+       BACK 버튼
+    ======================================== */
 
     .back-button {
       position: fixed;
@@ -97,9 +99,10 @@
       transform: translateX(-3px);
     }
 
-    /* =========================
-       상단
-    ========================= */
+
+    /* ========================================
+       페이지 제목
+    ======================================== */
 
     .top {
       margin-bottom: 42px;
@@ -111,10 +114,10 @@
       letter-spacing: 8px;
       font-weight: 500;
 
+      margin-bottom: 12px;
+
       text-shadow:
         0 0 20px rgba(130, 145, 255, 0.45);
-
-      margin-bottom: 12px;
     }
 
     .subtitle {
@@ -124,9 +127,10 @@
       color: rgba(220, 225, 255, 0.58);
     }
 
-    /* =========================
-       파트 선택 탭
-    ========================= */
+
+    /* ========================================
+       상단 조직 탭
+    ======================================== */
 
     .tabs {
       display: flex;
@@ -146,9 +150,9 @@
       padding: 16px 8px 18px;
 
       border: none;
-      outline: none;
 
       background: none;
+
       color: rgba(255, 255, 255, 0.48);
 
       font-size: 15px;
@@ -165,6 +169,7 @@
       content: "";
 
       position: absolute;
+
       left: 50%;
       bottom: -1px;
 
@@ -197,9 +202,10 @@
       width: 100%;
     }
 
-    /* =========================
-       각 파트
-    ========================= */
+
+    /* ========================================
+       조직 섹션
+    ======================================== */
 
     .character-section {
       display: none;
@@ -207,7 +213,8 @@
 
     .character-section.active {
       display: block;
-      animation: fadeIn 0.45s ease;
+
+      animation: fadeIn 0.4s ease;
     }
 
     @keyframes fadeIn {
@@ -244,17 +251,25 @@
         0 0 12px rgba(100, 120, 255, 0.7);
     }
 
-    /* =========================
-       캐릭터 카드
-    ========================= */
 
-    .character-grid {
+    /* ========================================
+       ECHEV
+       PC 4열
+    ======================================== */
+
+    .echev-grid {
       display: grid;
 
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns:
+        repeat(4, minmax(0, 1fr));
 
       gap: 32px 24px;
     }
+
+
+    /* ========================================
+       공통 카드
+    ======================================== */
 
     .character-card {
       overflow: hidden;
@@ -266,7 +281,8 @@
           rgba(8, 10, 22, 0.92)
         );
 
-      border: 1px solid rgba(150, 165, 255, 0.18);
+      border:
+        1px solid rgba(150, 165, 255, 0.18);
 
       box-shadow:
         0 15px 35px rgba(0, 0, 0, 0.35);
@@ -280,7 +296,8 @@
     .character-card:hover {
       transform: translateY(-7px);
 
-      border-color: rgba(160, 175, 255, 0.55);
+      border-color:
+        rgba(160, 175, 255, 0.55);
 
       box-shadow:
         0 20px 45px rgba(0, 0, 0, 0.5),
@@ -302,7 +319,10 @@
       overflow: hidden;
     }
 
-    .profile-image {
+
+    /* ECHEV 세로 이미지 */
+
+    .echev-image {
       width: 100%;
 
       aspect-ratio: 2 / 3;
@@ -321,17 +341,10 @@
         filter 0.4s ease;
     }
 
-    .character-card:hover .profile-image {
-      transform: scale(1.025);
 
-      filter:
-        brightness(1)
-        saturate(1);
-    }
-
-    /* =========================
+    /* ========================================
        캐릭터 정보
-    ========================= */
+    ======================================== */
 
     .character-info {
       padding: 19px 18px 21px;
@@ -347,26 +360,256 @@
     }
 
     .character-meta {
-      color: rgba(205, 213, 255, 0.72);
+      color:
+        rgba(205, 213, 255, 0.72);
 
       font-size: 13px;
 
       margin-bottom: 9px;
-
-      letter-spacing: 0.4px;
     }
 
     .character-personality {
-      color: rgba(255, 255, 255, 0.70);
+      color:
+        rgba(255, 255, 255, 0.70);
 
       font-size: 13px;
-
       line-height: 1.7;
     }
 
-    /* =========================
-       아직 제작 전 파트
-    ========================= */
+
+    /* ========================================
+       BACKSTAGE 하위 탭
+    ======================================== */
+
+    .backstage-tabs {
+      display: flex;
+      justify-content: center;
+
+      gap: 18px;
+
+      margin:
+        -8px
+        0
+        42px;
+    }
+
+    .backstage-tab {
+      min-width: 120px;
+
+      padding:
+        11px
+        28px;
+
+      border:
+        1px solid rgba(210, 185, 120, 0.24);
+
+      background:
+        rgba(5, 5, 8, 0.48);
+
+      color:
+        rgba(255, 255, 255, 0.48);
+
+      font-size: 13px;
+      letter-spacing: 4px;
+
+      cursor: pointer;
+
+      transition:
+        color 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .backstage-tab:hover {
+      color: #ffffff;
+    }
+
+    .backstage-tab.active {
+      color: #fff7df;
+
+      border-color:
+        rgba(218, 183, 103, 0.75);
+
+      background:
+        rgba(50, 38, 20, 0.40);
+
+      box-shadow:
+        0 0 18px rgba(180, 130, 40, 0.15);
+    }
+
+
+    /* ========================================
+       동부 / 서부 섹션
+    ======================================== */
+
+    .backstage-side {
+      display: none;
+    }
+
+    .backstage-side.active {
+      display: block;
+
+      animation: fadeIn 0.35s ease;
+    }
+
+    .side-heading {
+      display: flex;
+      align-items: center;
+
+      gap: 15px;
+
+      margin-bottom: 25px;
+    }
+
+    .side-heading h3 {
+      font-size: 20px;
+      font-weight: 500;
+
+      letter-spacing: 5px;
+    }
+
+    .side-heading span {
+      flex: 1;
+
+      height: 1px;
+
+      background:
+        rgba(210, 185, 120, 0.20);
+    }
+
+
+    /* BACKSTAGE는 가로 이미지라 PC 3열 */
+
+    .backstage-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 28px 22px;
+    }
+
+
+    .backstage-card {
+      overflow: hidden;
+
+      background:
+        rgba(6, 6, 8, 0.88);
+
+      border:
+        1px solid rgba(205, 180, 115, 0.20);
+
+      box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.45);
+
+      transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+    }
+
+    .backstage-card:hover {
+      transform:
+        translateY(-6px);
+
+      border-color:
+        rgba(215, 185, 110, 0.60);
+
+      box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.55),
+        0 0 25px rgba(170, 120, 35, 0.12);
+    }
+
+
+    /* BACKSTAGE 가로 프로필 */
+
+    .backstage-image {
+      width: 100%;
+
+      aspect-ratio: 16 / 9;
+
+      display: block;
+
+      object-fit: cover;
+
+      filter:
+        brightness(0.90)
+        saturate(0.95);
+
+      transition:
+        transform 0.45s ease,
+        filter 0.35s ease;
+    }
+
+    .backstage-card:hover .backstage-image {
+      transform:
+        scale(1.018);
+
+      filter:
+        brightness(1)
+        saturate(1);
+    }
+
+
+    /* BACKSTAGE 설명 */
+
+    .backstage-info {
+      padding:
+        16px
+        17px
+        18px;
+    }
+
+    .backstage-name {
+      font-size: 18px;
+      font-weight: 600;
+
+      margin-bottom: 7px;
+
+      letter-spacing: 1.5px;
+    }
+
+    .backstage-meta {
+      font-size: 12px;
+
+      color:
+        rgba(220, 200, 155, 0.72);
+
+      margin-bottom: 7px;
+    }
+
+    .backstage-personality {
+      font-size: 12px;
+      line-height: 1.6;
+
+      color:
+        rgba(255, 255, 255, 0.65);
+    }
+
+
+    /* NPC는 설명을 최소화 */
+
+    .npc-info {
+      text-align: center;
+
+      color:
+        rgba(255, 255, 255, 0.45);
+
+      font-size: 11px;
+
+      letter-spacing: 3px;
+
+      padding:
+        14px
+        10px
+        16px;
+    }
+
+
+    /* ========================================
+       실낙원
+    ======================================== */
 
     .empty-section {
       min-height: 350px;
@@ -375,19 +618,23 @@
       justify-content: center;
       align-items: center;
 
-      border: 1px solid rgba(160, 170, 255, 0.12);
+      border:
+        1px solid rgba(160, 170, 255, 0.12);
 
-      background: rgba(5, 7, 18, 0.35);
+      background:
+        rgba(5, 7, 18, 0.35);
 
-      color: rgba(255, 255, 255, 0.35);
+      color:
+        rgba(255, 255, 255, 0.35);
 
       font-size: 13px;
       letter-spacing: 4px;
     }
 
-    /* =========================
-       이미지 확대 모달
-    ========================= */
+
+    /* ========================================
+       확대 모달
+    ======================================== */
 
     .modal {
       position: fixed;
@@ -402,9 +649,11 @@
 
       padding: 35px;
 
-      background: rgba(0, 0, 0, 0.91);
+      background:
+        rgba(0, 0, 0, 0.93);
 
-      backdrop-filter: blur(8px);
+      backdrop-filter:
+        blur(8px);
 
       opacity: 0;
       visibility: hidden;
@@ -422,14 +671,14 @@
     .modal-content {
       position: relative;
 
-      max-width: 90vw;
+      max-width: 94vw;
       max-height: 92vh;
     }
 
     .modal-image {
       display: block;
 
-      max-width: 90vw;
+      max-width: 94vw;
       max-height: 88vh;
 
       width: auto;
@@ -438,66 +687,78 @@
       object-fit: contain;
 
       box-shadow:
-        0 0 45px rgba(80, 100, 255, 0.22),
+        0 0 45px rgba(80, 100, 255, 0.18),
         0 25px 70px rgba(0, 0, 0, 0.8);
     }
 
     .modal-close {
       position: absolute;
 
-      top: -42px;
+      top: -44px;
       right: 0;
 
       border: none;
+
       background: none;
 
-      color: rgba(255, 255, 255, 0.80);
+      color:
+        rgba(255, 255, 255, 0.82);
 
       font-size: 34px;
-      font-weight: 300;
 
       cursor: pointer;
-
-      transition:
-        color 0.2s ease,
-        transform 0.2s ease;
     }
 
     .modal-close:hover {
       color: #ffffff;
-      transform: scale(1.08);
     }
 
-    /* =========================
+
+    /* ========================================
        태블릿
-    ========================= */
+    ======================================== */
 
     @media (max-width: 1050px) {
 
       .page {
-        padding: 45px 28px 70px;
+        padding:
+          45px
+          28px
+          70px;
       }
 
-      .character-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .echev-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
 
-        gap: 28px 22px;
+      .backstage-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
       }
 
     }
 
-    /* =========================
-       휴대폰
-    ========================= */
+
+    /* ========================================
+       모바일
+    ======================================== */
 
     @media (max-width: 700px) {
 
       .page {
-        padding: 68px 15px 55px;
+        padding:
+          68px
+          15px
+          55px;
 
-        background-attachment: scroll;
-        background-position: center top;
+        background-attachment:
+          scroll;
+
+        background-position:
+          center top;
       }
+
 
       .back-button {
         position: absolute;
@@ -505,11 +766,14 @@
         top: 15px;
         left: 15px;
 
-        padding: 8px 10px;
+        padding:
+          8px
+          10px;
 
         font-size: 10px;
         letter-spacing: 2px;
       }
+
 
       .top {
         margin-bottom: 28px;
@@ -525,10 +789,12 @@
         letter-spacing: 2.5px;
       }
 
+
       .tabs {
         width: 100%;
 
-        justify-content: space-between;
+        justify-content:
+          space-between;
 
         gap: 0;
 
@@ -538,66 +804,97 @@
       .tab {
         flex: 1;
 
-        padding: 13px 3px 15px;
+        padding:
+          13px
+          3px
+          15px;
 
         font-size: 11px;
+
         letter-spacing: 1px;
       }
 
-      .section-header {
-        margin-bottom: 22px;
-      }
 
       .section-title {
         font-size: 21px;
+
         letter-spacing: 4px;
       }
 
-      /* 모바일 한 줄에 한 명 */
-      .character-grid {
-        grid-template-columns: 1fr;
+
+      /* ECHEV 한 줄 한 명 */
+
+      .echev-grid {
+        grid-template-columns:
+          1fr;
 
         gap: 28px;
       }
 
-      .character-card {
+
+      /* BACKSTAGE 하위 탭 */
+
+      .backstage-tabs {
         width: 100%;
+
+        gap: 10px;
+
+        margin-bottom: 30px;
       }
 
+      .backstage-tab {
+        flex: 1;
+
+        min-width: 0;
+
+        padding:
+          11px
+          8px;
+
+        font-size: 12px;
+        letter-spacing: 2px;
+      }
+
+
+      /* BACKSTAGE 한 줄 한 명 */
+
+      .backstage-grid {
+        grid-template-columns:
+          1fr;
+
+        gap: 24px;
+      }
+
+      .backstage-card:hover,
       .character-card:hover {
         transform: none;
       }
 
-      .character-info {
-        padding: 18px 17px 20px;
+
+      .backstage-info {
+        padding:
+          15px
+          15px
+          17px;
       }
 
-      .character-name {
-        font-size: 21px;
+      .backstage-name {
+        font-size: 18px;
       }
 
-      .character-meta,
-      .character-personality {
-        font-size: 13px;
-      }
 
       .modal {
-        padding: 18px;
-      }
-
-      .modal-content {
-        max-width: 94vw;
-        max-height: 88vh;
+        padding: 15px;
       }
 
       .modal-image {
-        max-width: 94vw;
-        max-height: 82vh;
+        max-width: 95vw;
+        max-height: 84vh;
       }
 
       .modal-close {
         top: -38px;
-        right: 2px;
+
         font-size: 32px;
       }
 
@@ -606,25 +903,43 @@
   </style>
 </head>
 
+
 <body>
 
   <div class="page">
 
-    <!-- 메인으로 돌아가기 -->
-    <a href="index.html" class="back-button">
+
+    <!-- 메인으로 -->
+
+    <a
+      href="index.html"
+      class="back-button">
       ← BACK
     </a>
 
 
     <div class="container">
 
+
+      <!-- 제목 -->
+
       <header class="top">
-        <h1 class="title">CHARACTERS</h1>
-        <p class="subtitle">웃음꽃이 피었습니다</p>
+
+        <h1 class="title">
+          CHARACTERS
+        </h1>
+
+        <p class="subtitle">
+          웃음꽃이 피었습니다
+        </p>
+
       </header>
 
 
-      <!-- 파트 선택 -->
+      <!-- ========================================
+           상단 조직 선택
+      ======================================== -->
+
       <nav class="tabs">
 
         <button
@@ -648,24 +963,30 @@
       </nav>
 
 
-      <!-- =========================
+      <!-- ========================================
            ECHEV
-      ========================== -->
+      ======================================== -->
 
       <section
         id="echev"
         class="character-section active">
 
         <div class="section-header">
-          <h2 class="section-title">ECHEV</h2>
+
+          <h2 class="section-title">
+            ECHEV
+          </h2>
+
           <div class="section-line"></div>
+
         </div>
 
 
-        <div class="character-grid">
+        <div class="echev-grid">
 
 
           <!-- 곽두식 -->
+
           <article class="character-card">
 
             <button
@@ -674,7 +995,7 @@
               data-name="곽두식">
 
               <img
-                class="profile-image"
+                class="echev-image"
                 src="곽두식_프로필.png"
                 alt="곽두식 프로필"
                 loading="lazy">
@@ -682,7 +1003,10 @@
             </button>
 
             <div class="character-info">
-              <h3 class="character-name">곽두식</h3>
+
+              <h3 class="character-name">
+                곽두식
+              </h3>
 
               <p class="character-meta">
                 남 / 전투 · ENFP
@@ -691,12 +1015,14 @@
               <p class="character-personality">
                 호탕함 · 개방적 · 이상적
               </p>
+
             </div>
 
           </article>
 
 
           <!-- 타라 -->
+
           <article class="character-card">
 
             <button
@@ -705,7 +1031,7 @@
               data-name="타라">
 
               <img
-                class="profile-image"
+                class="echev-image"
                 src="타라_프로필.png"
                 alt="타라 프로필"
                 loading="lazy">
@@ -713,7 +1039,10 @@
             </button>
 
             <div class="character-info">
-              <h3 class="character-name">타라</h3>
+
+              <h3 class="character-name">
+                타라
+              </h3>
 
               <p class="character-meta">
                 여 / 전략 · ESTP
@@ -722,12 +1051,14 @@
               <p class="character-personality">
                 호쾌 · 쿨녀 · 호탕함
               </p>
+
             </div>
 
           </article>
 
 
           <!-- 레미 -->
+
           <article class="character-card">
 
             <button
@@ -736,7 +1067,7 @@
               data-name="레미">
 
               <img
-                class="profile-image"
+                class="echev-image"
                 src="레미_프로필.png"
                 alt="레미 프로필"
                 loading="lazy">
@@ -744,7 +1075,10 @@
             </button>
 
             <div class="character-info">
-              <h3 class="character-name">레미</h3>
+
+              <h3 class="character-name">
+                레미
+              </h3>
 
               <p class="character-meta">
                 여 / 전투 · INFJ
@@ -753,12 +1087,14 @@
               <p class="character-personality">
                 냉철 · 피폐 · 츤데레
               </p>
+
             </div>
 
           </article>
 
 
           <!-- 제라 -->
+
           <article class="character-card">
 
             <button
@@ -767,7 +1103,7 @@
               data-name="제라">
 
               <img
-                class="profile-image"
+                class="echev-image"
                 src="제라_프로필.png"
                 alt="제라 프로필"
                 loading="lazy">
@@ -775,7 +1111,10 @@
             </button>
 
             <div class="character-info">
-              <h3 class="character-name">제라</h3>
+
+              <h3 class="character-name">
+                제라
+              </h3>
 
               <p class="character-meta">
                 여 / 전략 · ENFP
@@ -784,12 +1123,14 @@
               <p class="character-personality">
                 생기 · 활발 · 긍정적
               </p>
+
             </div>
 
           </article>
 
 
           <!-- 아메 -->
+
           <article class="character-card">
 
             <button
@@ -798,7 +1139,7 @@
               data-name="아메">
 
               <img
-                class="profile-image"
+                class="echev-image"
                 src="아메_프로필.png"
                 alt="아메 프로필"
                 loading="lazy">
@@ -806,7 +1147,10 @@
             </button>
 
             <div class="character-info">
-              <h3 class="character-name">아메</h3>
+
+              <h3 class="character-name">
+                아메
+              </h3>
 
               <p class="character-meta">
                 여 / 전투 · ISTJ
@@ -815,12 +1159,14 @@
               <p class="character-personality">
                 침착 · 무감정 · 차분
               </p>
+
             </div>
 
           </article>
 
 
           <!-- 블 -->
+
           <article class="character-card">
 
             <button
@@ -829,7 +1175,7 @@
               data-name="블">
 
               <img
-                class="profile-image"
+                class="echev-image"
                 src="블_프로필.png"
                 alt="블 프로필"
                 loading="lazy">
@@ -837,7 +1183,10 @@
             </button>
 
             <div class="character-info">
-              <h3 class="character-name">블</h3>
+
+              <h3 class="character-name">
+                블
+              </h3>
 
               <p class="character-meta">
                 남 / 두뇌·전략 · ISTJ
@@ -846,12 +1195,14 @@
               <p class="character-personality">
                 따뜻함 · 온화함 · 이중적
               </p>
+
             </div>
 
           </article>
 
 
           <!-- 마리 -->
+
           <article class="character-card">
 
             <button
@@ -860,7 +1211,7 @@
               data-name="마리">
 
               <img
-                class="profile-image"
+                class="echev-image"
                 src="마리_프로필.png"
                 alt="마리 프로필"
                 loading="lazy">
@@ -868,7 +1219,10 @@
             </button>
 
             <div class="character-info">
-              <h3 class="character-name">마리</h3>
+
+              <h3 class="character-name">
+                마리
+              </h3>
 
               <p class="character-meta">
                 여 / 치유·재생 · ENFP
@@ -877,12 +1231,14 @@
               <p class="character-personality">
                 겁많음 · 온화함 · 얀데레
               </p>
+
             </div>
 
           </article>
 
 
           <!-- 장 -->
+
           <article class="character-card">
 
             <button
@@ -891,7 +1247,7 @@
               data-name="장">
 
               <img
-                class="profile-image"
+                class="echev-image"
                 src="장_프로필.png"
                 alt="장 프로필"
                 loading="lazy">
@@ -899,7 +1255,10 @@
             </button>
 
             <div class="character-info">
-              <h3 class="character-name">장</h3>
+
+              <h3 class="character-name">
+                장
+              </h3>
 
               <p class="character-meta">
                 남 / 전투 · ISTJ
@@ -908,12 +1267,14 @@
               <p class="character-personality">
                 침착 · 냉혹 · 비판적
               </p>
+
             </div>
 
           </article>
 
 
           <!-- 발 -->
+
           <article class="character-card">
 
             <button
@@ -922,7 +1283,7 @@
               data-name="발">
 
               <img
-                class="profile-image"
+                class="echev-image"
                 src="발_프로필.png"
                 alt="발 프로필"
                 loading="lazy">
@@ -930,7 +1291,10 @@
             </button>
 
             <div class="character-info">
-              <h3 class="character-name">발</h3>
+
+              <h3 class="character-name">
+                발
+              </h3>
 
               <p class="character-meta">
                 남 / 전투 · ENFP
@@ -939,6 +1303,7 @@
               <p class="character-personality">
                 온화 · 다정다감 · 소심
               </p>
+
             </div>
 
           </article>
@@ -949,9 +1314,9 @@
       </section>
 
 
-      <!-- =========================
+      <!-- ========================================
            BACKSTAGE
-      ========================== -->
+      ======================================== -->
 
       <section
         id="backstage"
@@ -967,16 +1332,469 @@
 
         </div>
 
-        <div class="empty-section">
-          COMING SOON
+
+        <!-- 동부 / 서부 탭 -->
+
+        <div class="backstage-tabs">
+
+          <button
+            class="backstage-tab active"
+            data-side="east">
+            동부
+          </button>
+
+          <button
+            class="backstage-tab"
+            data-side="west">
+            서부
+          </button>
+
+        </div>
+
+
+        <!-- ====================================
+             동부
+        ===================================== -->
+
+        <div
+          id="east"
+          class="backstage-side active">
+
+          <div class="side-heading">
+
+            <h3>
+              EAST
+            </h3>
+
+            <span></span>
+
+          </div>
+
+
+          <div class="backstage-grid">
+
+
+            <!-- 소홍련 -->
+
+            <article class="backstage-card">
+
+              <button
+                class="profile-button"
+                data-image="소홍련_프로필.png"
+                data-name="소홍련">
+
+                <img
+                  class="backstage-image"
+                  src="소홍련_프로필.png"
+                  alt="소홍련 프로필"
+                  loading="lazy">
+
+              </button>
+
+              <div class="backstage-info">
+
+                <h3 class="backstage-name">
+                  소홍련
+                </h3>
+
+                <p class="backstage-meta">
+                  여 / 왕 · ISTJ
+                </p>
+
+                <p class="backstage-personality">
+                  침착 · 부동심 · 엄격 · 군주다움
+                </p>
+
+              </div>
+
+            </article>
+
+
+            <!-- 가일 -->
+
+            <article class="backstage-card">
+
+              <button
+                class="profile-button"
+                data-image="가일_프로필.png"
+                data-name="가일">
+
+                <img
+                  class="backstage-image"
+                  src="가일_프로필.png"
+                  alt="가일 프로필"
+                  loading="lazy">
+
+              </button>
+
+              <div class="backstage-info">
+
+                <h3 class="backstage-name">
+                  가일
+                </h3>
+
+                <p class="backstage-meta">
+                  남 / 집게잡이 · ENFP
+                </p>
+
+                <p class="backstage-personality">
+                  호쾌 · 이성적 · 친근함
+                </p>
+
+              </div>
+
+            </article>
+
+
+            <!-- 복순 -->
+
+            <article class="backstage-card">
+
+              <button
+                class="profile-button"
+                data-image="복순_프로필.png"
+                data-name="복순">
+
+                <img
+                  class="backstage-image"
+                  src="복순_프로필.png"
+                  alt="복순 프로필"
+                  loading="lazy">
+
+              </button>
+
+              <div class="backstage-info">
+
+                <h3 class="backstage-name">
+                  복순
+                </h3>
+
+                <p class="backstage-meta">
+                  여 / 망치잡이 · ESTP
+                </p>
+
+                <p class="backstage-personality">
+                  츤데레 · 차가움 · 호기심
+                </p>
+
+              </div>
+
+            </article>
+
+
+            <!-- 재희 -->
+
+            <article class="backstage-card">
+
+              <button
+                class="profile-button"
+                data-image="재희_프로필.png"
+                data-name="재희">
+
+                <img
+                  class="backstage-image"
+                  src="재희_프로필.png"
+                  alt="재희 프로필"
+                  loading="lazy">
+
+              </button>
+
+              <div class="backstage-info">
+
+                <h3 class="backstage-name">
+                  재희
+                </h3>
+
+                <p class="backstage-meta">
+                  여 / 풀무잡이 · INFJ
+                </p>
+
+                <p class="backstage-personality">
+                  겁많음 · 소심함
+                </p>
+
+              </div>
+
+            </article>
+
+
+            <!-- 동부 NPC 남 -->
+
+            <article class="backstage-card">
+
+              <button
+                class="profile-button"
+                data-image="백스NPC동부남자_프로필.png"
+                data-name="백스테이지 동부 NPC 남">
+
+                <img
+                  class="backstage-image"
+                  src="백스NPC동부남자_프로필.png"
+                  alt="백스테이지 동부 NPC 남"
+                  loading="lazy">
+
+              </button>
+
+              <div class="npc-info">
+                BACKSTAGE · EAST · NPC
+              </div>
+
+            </article>
+
+
+            <!-- 동부 NPC 여 -->
+
+            <article class="backstage-card">
+
+              <button
+                class="profile-button"
+                data-image="백스NPC동부여자_프로필.png"
+                data-name="백스테이지 동부 NPC 여">
+
+                <img
+                  class="backstage-image"
+                  src="백스NPC동부여자_프로필.png"
+                  alt="백스테이지 동부 NPC 여"
+                  loading="lazy">
+
+              </button>
+
+              <div class="npc-info">
+                BACKSTAGE · EAST · NPC
+              </div>
+
+            </article>
+
+
+          </div>
+
+        </div>
+
+
+        <!-- ====================================
+             서부
+        ===================================== -->
+
+        <div
+          id="west"
+          class="backstage-side">
+
+          <div class="side-heading">
+
+            <h3>
+              WEST
+            </h3>
+
+            <span></span>
+
+          </div>
+
+
+          <div class="backstage-grid">
+
+
+            <!-- 카인 -->
+
+            <article class="backstage-card">
+
+              <button
+                class="profile-button"
+                data-image="카인_프로필.png"
+                data-name="카인">
+
+                <img
+                  class="backstage-image"
+                  src="카인_프로필.png"
+                  alt="카인 프로필"
+                  loading="lazy">
+
+              </button>
+
+              <div class="backstage-info">
+
+                <h3 class="backstage-name">
+                  카인
+                </h3>
+
+                <p class="backstage-meta">
+                  남 / 왕 · ISFJ
+                </p>
+
+                <p class="backstage-personality">
+                  침착 · 냉혹 · 비판적 · 철혈통치
+                </p>
+
+              </div>
+
+            </article>
+
+
+            <!-- 빌라도 -->
+
+            <article class="backstage-card">
+
+              <button
+                class="profile-button"
+                data-image="빌라도_프로필.png"
+                data-name="빌라도">
+
+                <img
+                  class="backstage-image"
+                  src="빌라도_프로필.png"
+                  alt="빌라도 프로필"
+                  loading="lazy">
+
+              </button>
+
+              <div class="backstage-info">
+
+                <h3 class="backstage-name">
+                  빌라도
+                </h3>
+
+                <p class="backstage-meta">
+                  남 / 집게잡이 · INFP
+                </p>
+
+                <p class="backstage-personality">
+                  온화 · 다정다감 · 이성적
+                </p>
+
+              </div>
+
+            </article>
+
+
+            <!-- 금희 -->
+
+            <article class="backstage-card">
+
+              <button
+                class="profile-button"
+                data-image="금희_프로필.png"
+                data-name="금희">
+
+                <img
+                  class="backstage-image"
+                  src="금희_프로필.png"
+                  alt="금희 프로필"
+                  loading="lazy">
+
+              </button>
+
+              <div class="backstage-info">
+
+                <h3 class="backstage-name">
+                  금희
+                </h3>
+
+                <p class="backstage-meta">
+                  여 / 망치잡이 · ISTJ
+                </p>
+
+                <p class="backstage-personality">
+                  나태 · 투덜거림 · 다정함
+                </p>
+
+              </div>
+
+            </article>
+
+
+            <!-- 롯 -->
+
+            <article class="backstage-card">
+
+              <button
+                class="profile-button"
+                data-image="롯_프로필.png"
+                data-name="롯">
+
+                <img
+                  class="backstage-image"
+                  src="롯_프로필.png"
+                  alt="롯 프로필"
+                  loading="lazy">
+
+              </button>
+
+              <div class="backstage-info">
+
+                <h3 class="backstage-name">
+                  롯
+                </h3>
+
+                <p class="backstage-meta">
+                  여 / 풀무잡이 · ENFP
+                </p>
+
+                <p class="backstage-personality">
+                  호기심 · 과학자 · 흥분
+                </p>
+
+              </div>
+
+            </article>
+
+
+            <!-- 서부 NPC 남 -->
+
+            <article class="backstage-card">
+
+              <button
+                class="profile-button"
+                data-image="백스NPC서부남자_프로필.png"
+                data-name="백스테이지 서부 NPC 남">
+
+                <img
+                  class="backstage-image"
+                  src="백스NPC서부남자_프로필.png"
+                  alt="백스테이지 서부 NPC 남"
+                  loading="lazy">
+
+              </button>
+
+              <div class="npc-info">
+                BACKSTAGE · WEST · NPC
+              </div>
+
+            </article>
+
+
+            <!-- 서부 NPC 여 -->
+
+            <article class="backstage-card">
+
+              <button
+                class="profile-button"
+                data-image="백스NPC서부여자_프로필.png"
+                data-name="백스테이지 서부 NPC 여">
+
+                <img
+                  class="backstage-image"
+                  src="백스NPC서부여자_프로필.png"
+                  alt="백스테이지 서부 NPC 여"
+                  loading="lazy">
+
+              </button>
+
+              <div class="npc-info">
+                BACKSTAGE · WEST · NPC
+              </div>
+
+            </article>
+
+
+          </div>
+
         </div>
 
       </section>
 
 
-      <!-- =========================
+      <!-- ========================================
            실낙원
-      ========================== -->
+      ======================================== -->
 
       <section
         id="paradise"
@@ -1004,9 +1822,9 @@
   </div>
 
 
-  <!-- =========================
-       확대 이미지
-  ========================== -->
+  <!-- ========================================
+       이미지 확대
+  ======================================== -->
 
   <div
     class="modal"
@@ -1034,9 +1852,9 @@
 
   <script>
 
-    /* =========================
-       파트 탭
-    ========================== */
+    /* ========================================
+       상단 조직 탭
+    ======================================== */
 
     const tabs =
       document.querySelectorAll(".tab");
@@ -1052,13 +1870,16 @@
         const target =
           tab.dataset.target;
 
+
         tabs.forEach(item => {
           item.classList.remove("active");
         });
 
+
         sections.forEach(section => {
           section.classList.remove("active");
         });
+
 
         tab.classList.add("active");
 
@@ -1071,9 +1892,51 @@
     });
 
 
-    /* =========================
+
+    /* ========================================
+       BACKSTAGE 동부 / 서부
+    ======================================== */
+
+    const backstageTabs =
+      document.querySelectorAll(".backstage-tab");
+
+    const backstageSides =
+      document.querySelectorAll(".backstage-side");
+
+
+    backstageTabs.forEach(tab => {
+
+      tab.addEventListener("click", () => {
+
+        const side =
+          tab.dataset.side;
+
+
+        backstageTabs.forEach(item => {
+          item.classList.remove("active");
+        });
+
+
+        backstageSides.forEach(section => {
+          section.classList.remove("active");
+        });
+
+
+        tab.classList.add("active");
+
+        document
+          .getElementById(side)
+          .classList.add("active");
+
+      });
+
+    });
+
+
+
+    /* ========================================
        이미지 확대
-    ========================== */
+    ======================================== */
 
     const profileButtons =
       document.querySelectorAll(".profile-button");
@@ -1108,6 +1971,7 @@
     });
 
 
+
     function closeModal() {
 
       modal.classList.remove("open");
@@ -1122,7 +1986,8 @@
     }
 
 
-    /* X 버튼 클릭 */
+    /* X 버튼 */
+
     modalClose.addEventListener(
       "click",
       closeModal
@@ -1130,6 +1995,7 @@
 
 
     /* 검은 배경 클릭 */
+
     modal.addEventListener(
       "click",
       event => {
@@ -1142,7 +2008,8 @@
     );
 
 
-    /* ESC 키 */
+    /* ESC */
+
     document.addEventListener(
       "keydown",
       event => {
