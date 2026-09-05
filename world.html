@@ -3,29 +3,1591 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>WORLD | 웃음꽃이 피었습니다</title>
+
+  <style>
+
+    /* ==================================================
+       RESET
+    ================================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      background: #07080d;
+      color: #f5f3ed;
+    }
+
+    body {
+      font-family:
+        Arial,
+        "Noto Sans KR",
+        sans-serif;
+
+      overflow-x: hidden;
+
+      background:
+        radial-gradient(
+          circle at top,
+          #141724 0%,
+          #090a10 35%,
+          #05060a 100%
+        );
+    }
+
+
+    /* ==================================================
+       BACK
+    ================================================== */
+
+    .back-button {
+      position: fixed;
+
+      top: 26px;
+      left: 28px;
+
+      z-index: 1000;
+
+      padding: 10px 15px;
+
+      color: rgba(255, 255, 255, 0.72);
+
+      text-decoration: none;
+
+      font-size: 12px;
+      letter-spacing: 3px;
+
+      border:
+        1px solid rgba(225, 199, 135, 0.25);
+
+      background:
+        rgba(5, 6, 10, 0.68);
+
+      backdrop-filter: blur(10px);
+
+      transition:
+        color 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .back-button:hover {
+      color: #fff9e8;
+
+      border-color:
+        rgba(229, 199, 125, 0.70);
+
+      background:
+        rgba(25, 21, 14, 0.88);
+
+      transform:
+        translateX(-3px);
+    }
+
+
+    /* ==================================================
+       전체 페이지
+    ================================================== */
+
+    .world-page {
+      width: 100%;
+
+      padding:
+        85px
+        40px
+        110px;
+    }
+
+    .world-container {
+      width: 100%;
+
+      max-width: 1380px;
+
+      margin: 0 auto;
+    }
+
+
+    /* ==================================================
+       WORLD INTRO
+    ================================================== */
+
+    .world-header {
+      min-height: 72vh;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      text-align: center;
+
+      padding:
+        80px
+        30px
+        110px;
+    }
+
+    .world-kicker {
+      margin-bottom: 17px;
+
+      color:
+        rgba(224, 199, 139, 0.65);
+
+      font-size: 11px;
+
+      letter-spacing: 8px;
+    }
+
+    .world-title {
+      font-size:
+        clamp(58px, 7vw, 105px);
+
+      font-weight: 400;
+
+      letter-spacing:
+        clamp(10px, 2vw, 25px);
+
+      line-height: 1;
+
+      color: #ffffff;
+
+      text-shadow:
+        0 0 30px rgba(145, 160, 255, 0.15),
+        0 0 70px rgba(0, 0, 0, 0.9);
+    }
+
+    .world-subtitle {
+      margin-top: 25px;
+
+      font-size: 14px;
+
+      letter-spacing: 6px;
+
+      color:
+        rgba(255, 255, 255, 0.42);
+    }
+
+    .intro-line {
+      width: 80px;
+      height: 1px;
+
+      margin:
+        42px
+        auto;
+
+      background:
+        rgba(225, 194, 120, 0.65);
+
+      box-shadow:
+        0 0 15px rgba(225, 194, 120, 0.25);
+    }
+
+    .world-intro {
+      width: 100%;
+
+      max-width: 760px;
+
+      margin: 0 auto;
+
+      color:
+        rgba(255, 255, 255, 0.72);
+
+      font-size: 16px;
+
+      line-height: 2.05;
+
+      word-break: keep-all;
+    }
+
+    .world-intro p + p {
+      margin-top: 18px;
+    }
+
+
+    /* ==================================================
+       공통 SECTION
+    ================================================== */
+
+    .world-section {
+      margin-bottom: 150px;
+    }
+
+    .section-heading {
+      margin-bottom: 35px;
+    }
+
+    .section-number {
+      display: block;
+
+      margin-bottom: 12px;
+
+      color:
+        rgba(222, 191, 115, 0.48);
+
+      font-size: 10px;
+
+      letter-spacing: 5px;
+    }
+
+    .section-title {
+      font-size:
+        clamp(34px, 4vw, 57px);
+
+      font-weight: 500;
+
+      letter-spacing: 5px;
+
+      line-height: 1.25;
+    }
+
+    .section-eng {
+      display: block;
+
+      margin-top: 10px;
+
+      color:
+        rgba(220, 199, 150, 0.63);
+
+      font-size: 13px;
+
+      font-weight: 400;
+
+      letter-spacing: 5px;
+    }
+
+    .heading-line {
+      width: 55px;
+      height: 1px;
+
+      margin-top: 19px;
+
+      background:
+        rgba(224, 194, 120, 0.72);
+
+      box-shadow:
+        0 0 12px rgba(210, 165, 70, 0.25);
+    }
+
+
+    /* ==================================================
+       이미지
+    ================================================== */
+
+    .world-image-wrap {
+      width: 100%;
+
+      margin-bottom: 42px;
+
+      overflow: hidden;
+
+      background: #050609;
+
+      border:
+        1px solid rgba(221, 193, 127, 0.20);
+
+      box-shadow:
+        0 28px 70px rgba(0, 0, 0, 0.58);
+    }
+
+    .world-image {
+      width: 100%;
+      height: auto;
+
+      display: block;
+
+      transition:
+        transform 0.7s ease,
+        filter 0.6s ease;
+
+      filter:
+        brightness(0.94);
+    }
+
+    .world-image-wrap:hover .world-image {
+      transform: scale(1.012);
+
+      filter:
+        brightness(1);
+    }
+
+
+    /* ==================================================
+       설명
+    ================================================== */
+
+    .lore-box {
+      width: 100%;
+
+      max-width: 940px;
+
+      padding:
+        34px
+        38px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(20, 21, 29, 0.85),
+          rgba(8, 9, 14, 0.82)
+        );
+
+      border-left:
+        2px solid rgba(219, 186, 105, 0.55);
+
+      border-top:
+        1px solid rgba(255, 255, 255, 0.05);
+
+      border-bottom:
+        1px solid rgba(255, 255, 255, 0.05);
+
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.30);
+    }
+
+    .lore-box p {
+      color:
+        rgba(255, 255, 255, 0.73);
+
+      font-size: 15px;
+
+      line-height: 2;
+
+      word-break: keep-all;
+    }
+
+    .lore-box p + p {
+      margin-top: 17px;
+    }
+
+    .lore-box strong {
+      color: #fff7df;
+
+      font-weight: 600;
+    }
+
+    .highlight-line {
+      margin:
+        30px
+        0
+        2px;
+
+      color: #fff8e8 !important;
+
+      font-size: 17px !important;
+
+      font-weight: 600;
+
+      letter-spacing: 0.5px;
+    }
+
+
+    /* ==================================================
+       실낙원은 약간 밝은 포인트
+    ================================================== */
+
+    .paradise-section .section-title {
+      color: #fffdf5;
+
+      text-shadow:
+        0 0 25px rgba(220, 230, 255, 0.14);
+    }
+
+
+    /* ==================================================
+       KHARA
+    ================================================== */
+
+    .khara-section .section-eng {
+      color:
+        rgba(225, 110, 115, 0.75);
+    }
+
+    .khara-section .heading-line {
+      background:
+        rgba(210, 65, 73, 0.8);
+
+      box-shadow:
+        0 0 14px rgba(210, 30, 50, 0.35);
+    }
+
+    .khara-section .lore-box {
+      border-left-color:
+        rgba(210, 65, 75, 0.65);
+    }
+
+
+    /* ==================================================
+       ECHEV
+    ================================================== */
+
+    .echev-section .section-eng {
+      color:
+        rgba(182, 200, 220, 0.65);
+    }
+
+
+    /* ==================================================
+       BACKSTAGE
+    ================================================== */
+
+    .backstage-section {
+      padding-top: 20px;
+    }
+
+
+    /* ==================================================
+       동부 / 서부
+    ================================================== */
+
+    .backstage-sides {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 34px;
+
+      margin-top: 75px;
+    }
+
+    .side-card {
+      min-width: 0;
+    }
+
+    .side-card .section-heading {
+      margin-bottom: 26px;
+    }
+
+    .side-card .section-title {
+      font-size:
+        clamp(28px, 3vw, 42px);
+    }
+
+    .side-card .world-image-wrap {
+      margin-bottom: 27px;
+    }
+
+    .side-card .lore-box {
+      height: 100%;
+
+      padding:
+        28px
+        28px;
+
+      border-left-width: 1px;
+    }
+
+    .side-card .lore-box p {
+      font-size: 14px;
+      line-height: 1.95;
+    }
+
+
+    /* 동부 */
+
+    .east-card .section-eng {
+      color:
+        rgba(224, 184, 103, 0.72);
+    }
+
+    .east-card .lore-box {
+      border-left-color:
+        rgba(224, 174, 65, 0.62);
+    }
+
+
+    /* 서부 */
+
+    .west-card .section-eng {
+      color:
+        rgba(204, 210, 220, 0.68);
+    }
+
+    .west-card .lore-box {
+      border-left-color:
+        rgba(195, 202, 215, 0.48);
+    }
+
+
+    /* ==================================================
+       CAIN
+    ================================================== */
+
+    .cain-section {
+      max-width: 900px;
+
+      margin:
+        140px
+        auto
+        40px;
+
+      padding:
+        65px
+        60px;
+
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(28, 29, 38, 0.58),
+          rgba(8, 9, 13, 0.92)
+        );
+
+      border:
+        1px solid rgba(210, 210, 220, 0.10);
+
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.55);
+    }
+
+    .cain-label {
+      margin-bottom: 13px;
+
+      color:
+        rgba(222, 195, 128, 0.52);
+
+      font-size: 10px;
+      letter-spacing: 6px;
+    }
+
+    .cain-title {
+      font-size:
+        clamp(38px, 5vw, 58px);
+
+      font-weight: 500;
+
+      letter-spacing: 7px;
+
+      margin-bottom: 8px;
+    }
+
+    .cain-eng {
+      color:
+        rgba(255, 255, 255, 0.35);
+
+      font-size: 12px;
+
+      letter-spacing: 6px;
+
+      margin-bottom: 38px;
+    }
+
+    .cain-text {
+      color:
+        rgba(255, 255, 255, 0.69);
+
+      font-size: 15px;
+
+      line-height: 2;
+
+      word-break: keep-all;
+    }
+
+    .cain-text p + p {
+      margin-top: 18px;
+    }
+
+    .cain-secret {
+      margin-top: 31px !important;
+
+      color: #f4ead0 !important;
+
+      font-size: 17px !important;
+
+      font-weight: 600;
+    }
+
+
+    /* ==================================================
+       FOOTER
+    ================================================== */
+
+    .world-footer {
+      padding:
+        90px
+        20px
+        30px;
+
+      text-align: center;
+
+      color:
+        rgba(255, 255, 255, 0.22);
+
+      font-size: 10px;
+
+      letter-spacing: 7px;
+    }
+
+
+    /* ==================================================
+       TABLET
+       701 ~ 1100
+    ================================================== */
+
+    @media
+    (min-width: 701px)
+    and
+    (max-width: 1100px) {
+
+      .world-page {
+        padding:
+          75px
+          28px
+          90px;
+      }
+
+      .world-header {
+        min-height: 65vh;
+
+        padding:
+          70px
+          30px
+          90px;
+      }
+
+      .world-title {
+        font-size:
+          clamp(55px, 9vw, 80px);
+      }
+
+      .world-intro {
+        max-width: 700px;
+
+        font-size: 15px;
+      }
+
+      .world-section {
+        margin-bottom: 115px;
+      }
+
+      .lore-box {
+        max-width: none;
+      }
+
+      /* 태블릿에선 동/서 세로 */
+
+      .backstage-sides {
+        grid-template-columns:
+          1fr;
+
+        gap: 90px;
+      }
+
+      .side-card .section-title {
+        font-size: 36px;
+      }
+
+      .cain-section {
+        margin-top: 115px;
+
+        padding:
+          55px
+          45px;
+      }
+
+    }
+
+
+    /* ==================================================
+       MOBILE
+       700 이하
+    ================================================== */
+
+    @media (max-width: 700px) {
+
+      .world-page {
+        padding:
+          65px
+          14px
+          70px;
+      }
+
+
+      /* BACK */
+
+      .back-button {
+        top: 13px;
+        left: 13px;
+
+        padding:
+          8px
+          10px;
+
+        font-size: 10px;
+
+        letter-spacing: 2px;
+      }
+
+
+      /* INTRO */
+
+      .world-header {
+        min-height: 72vh;
+
+        padding:
+          75px
+          8px
+          80px;
+      }
+
+      .world-kicker {
+        font-size: 9px;
+
+        letter-spacing: 5px;
+      }
+
+      .world-title {
+        font-size:
+          clamp(45px, 15vw, 67px);
+
+        letter-spacing:
+          clamp(5px, 3vw, 10px);
+      }
+
+      .world-subtitle {
+        margin-top: 18px;
+
+        font-size: 10px;
+
+        letter-spacing: 3px;
+      }
+
+      .intro-line {
+        margin:
+          32px
+          auto;
+
+        width: 55px;
+      }
+
+      .world-intro {
+        max-width: 100%;
+
+        font-size: 14px;
+
+        line-height: 1.9;
+      }
+
+
+      /* SECTION */
+
+      .world-section {
+        margin-bottom: 90px;
+      }
+
+      .section-heading {
+        margin-bottom: 23px;
+      }
+
+      .section-number {
+        font-size: 8px;
+
+        letter-spacing: 4px;
+      }
+
+      .section-title {
+        font-size:
+          clamp(30px, 10vw, 41px);
+
+        letter-spacing: 3px;
+      }
+
+      .section-eng {
+        margin-top: 8px;
+
+        font-size: 10px;
+
+        letter-spacing: 3px;
+      }
+
+      .heading-line {
+        margin-top: 14px;
+
+        width: 40px;
+      }
+
+
+      /* 이미지 */
+
+      .world-image-wrap {
+        margin-bottom: 22px;
+
+        box-shadow:
+          0 18px 45px rgba(0, 0, 0, 0.48);
+      }
+
+      .world-image-wrap:hover .world-image {
+        transform: none;
+      }
+
+
+      /* 글 */
+
+      .lore-box {
+        padding:
+          24px
+          19px;
+
+        border-left-width: 1px;
+      }
+
+      .lore-box p {
+        font-size: 13px;
+
+        line-height: 1.9;
+      }
+
+      .lore-box p + p {
+        margin-top: 15px;
+      }
+
+      .highlight-line {
+        margin-top: 24px !important;
+
+        font-size: 14px !important;
+      }
+
+
+      /* 동서부 */
+
+      .backstage-sides {
+        grid-template-columns:
+          1fr;
+
+        gap: 75px;
+
+        margin-top: 60px;
+      }
+
+      .side-card .section-title {
+        font-size: 30px;
+      }
+
+      .side-card .lore-box {
+        padding:
+          23px
+          18px;
+      }
+
+      .side-card .lore-box p {
+        font-size: 13px;
+      }
+
+
+      /* CAIN */
+
+      .cain-section {
+        margin:
+          90px
+          0
+          20px;
+
+        padding:
+          47px
+          21px;
+      }
+
+      .cain-label {
+        font-size: 8px;
+
+        letter-spacing: 4px;
+      }
+
+      .cain-title {
+        font-size: 38px;
+
+        letter-spacing: 5px;
+      }
+
+      .cain-eng {
+        margin-bottom: 28px;
+
+        font-size: 10px;
+
+        letter-spacing: 4px;
+      }
+
+      .cain-text {
+        font-size: 13px;
+
+        line-height: 1.9;
+      }
+
+      .cain-secret {
+        font-size: 14px !important;
+      }
+
+
+      .world-footer {
+        padding-top: 65px;
+
+        font-size: 8px;
+
+        letter-spacing: 4px;
+      }
+
+    }
+
+  </style>
 </head>
 
-<body style="
-  margin:0;
-  background:#050611;
-  color:white;
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-family:Arial;
-">
 
-  <div style="text-align:center;">
-    <h1>WORLD</h1>
-    <p>준비 중입니다.</p>
+<body>
 
-    <a href="index.html"
-       style="color:#9aaaff;">
-       ← 돌아가기
-    </a>
-  </div>
+
+  <!-- ==============================================
+       메인으로
+  =============================================== -->
+
+  <a
+    href="index.html"
+    class="back-button">
+    ← BACK
+  </a>
+
+
+
+  <main class="world-page">
+
+    <div class="world-container">
+
+
+      <!-- ==========================================
+           WORLD
+      =========================================== -->
+
+      <header class="world-header">
+
+        <span class="world-kicker">
+          ARCHIVE · WORLD
+        </span>
+
+        <h1 class="world-title">
+          WORLD
+        </h1>
+
+        <p class="world-subtitle">
+          웃음꽃이 피었습니다
+        </p>
+
+        <div class="intro-line"></div>
+
+
+        <div class="world-intro">
+
+          <p>
+            인류는 더 이상 하나의 세계에서 살아가지 않는다.
+          </p>
+
+          <p>
+            꽃과 웃음으로 가득한 지상의
+            <strong>실낙원</strong>,
+            그리고 기술과 생존을 통해 자신들만의 문명을 구축한
+            지하의 세계.
+          </p>
+
+          <p>
+            두 인류를 갈라놓은 것은
+            단순한 국경이나 지형이 아니다.
+          </p>
+
+          <p>
+            보이지 않는 경계가 인간과 인간 사이를 나누고 있으며,
+            그 경계를 유지하려는 자들과 무너뜨리려는 자들이
+            각자의 신념을 가지고 움직이고 있다.
+          </p>
+
+        </div>
+
+      </header>
+
+
+
+      <!-- ==========================================
+           01 실낙원
+      =========================================== -->
+
+      <section class="world-section paradise-section">
+
+        <div class="section-heading">
+
+          <span class="section-number">
+            LOCATION · 01
+          </span>
+
+          <h2 class="section-title">
+            실낙원
+            <span class="section-eng">
+              PARADISE LOST
+            </span>
+          </h2>
+
+          <div class="heading-line"></div>
+
+        </div>
+
+
+        <div class="world-image-wrap">
+
+          <img
+            class="world-image"
+            src="배경_실낙원.png"
+            alt="실낙원">
+
+        </div>
+
+
+        <div class="lore-box">
+
+          <p>
+            실낙원은 약 <strong>???년 전</strong>
+            시작된 대규모 인류 사회 프로젝트다.
+          </p>
+
+          <p>
+            실낙원의 ‘실’은
+            <strong>???</strong>을 뜻하는 것이 아니라,
+            <strong>???</strong>을 의미한다.
+          </p>
+
+          <p>
+            이 프로젝트가 추구한 것은 단순했다.
+          </p>
+
+          <p>
+            <strong>
+              치안에 대한 두려움도,
+              갈등도,
+              불행도 없이
+              모든 인간이 행복하게 웃으며 살아가는 사회.
+            </strong>
+          </p>
+
+          <p>
+            그렇게 만들어진 실낙원은
+            끝없이 펼쳐진 꽃밭과 아름다운 자연,
+            평온한 마을과 웃음을 잃지 않는 사람들로 가득하다.
+          </p>
+
+          <p>
+            겉으로만 본다면
+            인류가 그토록 바라왔던 이상향에
+            가장 가까운 장소다.
+          </p>
+
+          <p>
+            그러나 그 완벽한 평화 속에는
+            이상하리만큼 깊은 침묵이 흐른다.
+          </p>
+
+          <p class="highlight-line">
+            꽃은 언제나 만개하고,
+            사람들은 언제나 웃는다.
+          </p>
+
+          <p>
+            그리고 그 누구도,
+            그 사실을 이상하게 여기지 않는다.
+          </p>
+
+          <p>
+            아름답고 평화로운 풍경 아래
+            설명하기 어려운 서늘한 공포가
+            조용히 숨 쉬는 곳.
+          </p>
+
+          <p>
+            그것이 <strong>실낙원</strong>이다.
+          </p>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- ==========================================
+           02 카라
+      =========================================== -->
+
+      <section class="world-section khara-section">
+
+        <div class="section-heading">
+
+          <span class="section-number">
+            OBJECT · 02
+          </span>
+
+          <h2 class="section-title">
+            카라
+            <span class="section-eng">
+              χαρά
+            </span>
+          </h2>
+
+          <div class="heading-line"></div>
+
+        </div>
+
+
+        <div class="world-image-wrap">
+
+          <img
+            class="world-image"
+            src="배경_카라.png"
+            alt="카라">
+
+        </div>
+
+
+        <div class="lore-box">
+
+          <p>
+            약 100년 전,
+            실낙원 건설과 함께
+            정체불명의 <strong>???</strong>가 설치한 장치.
+          </p>
+
+          <p>
+            카라는 실낙원 내부에서 살아가는
+            <strong>신인류의 감정을 통제</strong>하고,
+            동시에 구인류가 실낙원으로 진입하지 못하도록 하는
+            <strong>물질 X를 생성·살포</strong>한다.
+          </p>
+
+          <p>
+            실낙원의 평온과 질서를 유지하는 핵심 장치이지만,
+            그 존재와 정확한 작동 원리는
+            대부분의 사람들에게 철저히 숨겨져 있다.
+          </p>
+
+          <p>
+            꽃이 만개하고 모두가 웃는
+            실낙원의 이면에는
+            언제나 카라가 존재한다.
+          </p>
+
+          <p class="highlight-line">
+            모두가 웃는 이유.
+          </p>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- ==========================================
+           03 에초브
+      =========================================== -->
+
+      <section class="world-section echev-section">
+
+        <div class="section-heading">
+
+          <span class="section-number">
+            ORGANIZATION · 03
+          </span>
+
+          <h2 class="section-title">
+            에초브
+
+            <span class="section-eng">
+              ECHEV · THE WEEPERS
+            </span>
+
+          </h2>
+
+          <div class="heading-line"></div>
+
+        </div>
+
+
+        <div class="world-image-wrap">
+
+          <img
+            class="world-image"
+            src="배경_에초브.png"
+            alt="에초브 기지">
+
+        </div>
+
+
+        <div class="lore-box">
+
+          <p>
+            에초브는 일명
+            <strong>‘우는 자들’</strong>이라 불리는 집단이다.
+          </p>
+
+          <p>
+            그들의 목적은
+            실낙원에 존재하는 카라의 기능을 뒤집는 것이다.
+          </p>
+
+          <p>
+            본래 카라가 물질 X를 살포하는 장치라면,
+            에초브는 그것을
+            <strong>물질 X를 분해하는 장치</strong>로
+            전환하는 기술을 이용해
+            지상과 지하를 가르는 장벽을 무력화하고자 한다.
+          </p>
+
+          <p>
+            그들이 궁극적으로 바라는 것은
+            단순한 파괴가 아니다.
+          </p>
+
+          <p class="highlight-line">
+            지상의 인류와 지하의 인류가
+            다시 하나의 인류로 통합되는 것.
+          </p>
+
+          <p>
+            그것이 에초브가 싸우는 이유다.
+          </p>
+
+          <p>
+            에초브의 대원들은
+            출신도, 성별도, 나이도 제각각이다.
+          </p>
+
+          <p>
+            심지어 서로 다른 국경과 문화를
+            배경으로 살아온 이들까지
+            한데 모여 있다.
+          </p>
+
+          <p>
+            그들에게 공통점이 있다면 단 하나.
+          </p>
+
+          <p class="highlight-line">
+            지금의 세계를 그대로 받아들이지 않는다는 것.
+          </p>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- ==========================================
+           04 백스테이지
+      =========================================== -->
+
+      <section class="world-section backstage-section">
+
+        <div class="section-heading">
+
+          <span class="section-number">
+            ORGANIZATION · 04
+          </span>
+
+          <h2 class="section-title">
+            백스테이지
+
+            <span class="section-eng">
+              BACKSTAGE
+            </span>
+
+          </h2>
+
+          <div class="heading-line"></div>
+
+        </div>
+
+
+        <div class="world-image-wrap">
+
+          <img
+            class="world-image"
+            src="배경_백스테이지.png"
+            alt="백스테이지">
+
+        </div>
+
+
+        <div class="lore-box">
+
+          <p>
+            백스테이지는
+            <strong>기술 만능주의를 신봉하는
+            고도 기술 결사체</strong>다.
+          </p>
+
+          <p>
+            그들에게 기술은 단순한 도구가 아니다.
+          </p>
+
+          <p>
+            어둡고 갑갑한 세계로부터 자신들을 해방시켜 줄
+            유일한 메시아이며,
+            자유로 향하는 유일한 길이다.
+          </p>
+
+          <p>
+            그들은 오랜 시간
+            광기에 가까운 집념으로
+            기술 발전을 거듭해 왔다.
+          </p>
+
+          <p>
+            그리고 자유를 향한 그들의 끝없는 염원은
+            마침내 <strong>???</strong>을 탄생시켰다.
+          </p>
+
+          <p>
+            그것은 백스테이지를 새로운 시대로 이끌
+            거대한 주춧돌이 될 예정이었다.
+          </p>
+
+          <p class="highlight-line">
+            적어도, 그들은 그렇게 믿었다.
+          </p>
+
+        </div>
+
+
+
+        <!-- ======================================
+             EAST / WEST
+        ======================================= -->
+
+        <div class="backstage-sides">
+
+
+          <!-- EAST -->
+
+          <article class="side-card east-card">
+
+            <div class="section-heading">
+
+              <span class="section-number">
+                BACKSTAGE · EAST
+              </span>
+
+              <h3 class="section-title">
+                백스테이지 동부
+
+                <span class="section-eng">
+                  EAST
+                </span>
+
+              </h3>
+
+              <div class="heading-line"></div>
+
+            </div>
+
+
+            <div class="world-image-wrap">
+
+              <img
+                class="world-image"
+                src="배경_백스 동양.png"
+                alt="백스테이지 동부">
+
+            </div>
+
+
+            <div class="lore-box">
+
+              <p>
+                백스테이지의 권력은
+                <strong>‘대장간’</strong>이라 불리는
+                조직들을 중심으로 형성되어 있다.
+              </p>
+
+              <p>
+                대장간은 단순히 무기와 기계를 제작하는
+                작업장이 아니다.
+              </p>
+
+              <p>
+                그 자체가 하나의
+                <strong>정부이자 기업</strong>이며,
+                정치·경제·기술을 동시에 지배하는
+                권력기관이다.
+              </p>
+
+              <p>
+                동부는 가장 거대한 대장간인
+                <strong>‘구제’</strong>의 지휘 아래
+                여러 하위 대장간들이 연합하여 구성된
+                일종의 연합체적 체제를 이루고 있다.
+              </p>
+
+              <p>
+                이들은 인간의 신체 내부에
+                <strong>???</strong>을 주입하고,
+                <strong>??? 방식</strong>을 통해
+                인간의 육체를 강화하는 기술로 특히 유명하다.
+              </p>
+
+              <p class="highlight-line">
+                기술은 동부 사회의
+                생존 방식이자 힘의 근원이다.
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- WEST -->
+
+          <article class="side-card west-card">
+
+            <div class="section-heading">
+
+              <span class="section-number">
+                BACKSTAGE · WEST
+              </span>
+
+              <h3 class="section-title">
+                백스테이지 서부
+
+                <span class="section-eng">
+                  WEST
+                </span>
+
+              </h3>
+
+              <div class="heading-line"></div>
+
+            </div>
+
+
+            <div class="world-image-wrap">
+
+              <img
+                class="world-image"
+                src="배경_백스 서양.png"
+                alt="백스테이지 서부">
+
+            </div>
+
+
+            <div class="lore-box">
+
+              <p>
+                서부의 대장간들은
+                가장 거대한 세력인
+                <strong>‘아웃로’</strong>를 중심으로 한
+                군주정 체제로 운영된다.
+              </p>
+
+              <p>
+                아웃로와 동부의 구제는
+                오랜 시간 긴장 관계를 유지해왔다.
+              </p>
+
+              <p>
+                한때 에초브와 관련된 사건을 계기로
+                양측 사이에 화해의 가능성이
+                열리기도 했다.
+              </p>
+
+              <p>
+                그러나 이후 발생한
+                <strong>??? 사건</strong>으로
+                관계는 다시 급격히 냉각되었고,
+                양측은 다시금 사실상의
+                <strong>냉전체제</strong>로 돌아가게 된다.
+              </p>
+
+              <p>
+                겉으로는 직접적인 충돌을 피하고 있지만,
+                두 세력 사이의 긴장은
+                여전히 사라지지 않았다.
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- ==========================================
+           카인
+      =========================================== -->
+
+      <section class="cain-section">
+
+        <div class="cain-label">
+          CLASSIFIED PERSONNEL
+        </div>
+
+        <h2 class="cain-title">
+          카인
+        </h2>
+
+        <div class="cain-eng">
+          CAIN
+        </div>
+
+
+        <div class="cain-text">
+
+          <p>
+            아웃로의 지배자 카인은
+            자신의 목표에 지나치리만큼 충실한 인물이다.
+          </p>
+
+          <p>
+            그러나 그와 직접 접촉한 이들 사이에서는
+            한 가지 공통된 이야기가 전해진다.
+          </p>
+
+          <p class="cain-secret">
+            그의 진짜 목적은
+            아웃로의 번영도,
+            서부의 지배도 아닌 것 같다는 것.
+          </p>
+
+          <p>
+            그가 무엇을 위해 움직이고 있는지는
+            아직 알려지지 않았다.
+          </p>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- ==========================================
+           FOOTER
+      =========================================== -->
+
+      <footer class="world-footer">
+        웃음꽃이 피었습니다 · WORLD ARCHIVE
+      </footer>
+
+
+    </div>
+
+  </main>
 
 </body>
 </html>
