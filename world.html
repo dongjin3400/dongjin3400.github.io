@@ -26,6 +26,7 @@
     body {
       width: 100%;
       min-height: 100%;
+
       background: #07080d;
       color: #f5f3ed;
     }
@@ -73,7 +74,7 @@
         1px solid rgba(225, 199, 135, 0.25);
 
       background:
-        rgba(5, 6, 10, 0.68);
+        rgba(5, 6, 10, 0.72);
 
       backdrop-filter: blur(10px);
 
@@ -93,8 +94,7 @@
       background:
         rgba(25, 21, 14, 0.88);
 
-      transform:
-        translateX(-3px);
+      transform: translateX(-3px);
     }
 
 
@@ -113,7 +113,6 @@
 
     .world-container {
       width: 100%;
-
       max-width: 1380px;
 
       margin: 0 auto;
@@ -147,7 +146,6 @@
         rgba(224, 199, 139, 0.65);
 
       font-size: 11px;
-
       letter-spacing: 8px;
     }
 
@@ -197,7 +195,6 @@
 
     .world-intro {
       width: 100%;
-
       max-width: 760px;
 
       margin: 0 auto;
@@ -222,10 +219,16 @@
     ================================================== */
 
     .world-section {
-      margin-bottom: 150px;
+      width: 100%;
+
+      margin-bottom: 145px;
+
+      clear: both;
     }
 
     .section-heading {
+      width: 100%;
+
       margin-bottom: 35px;
     }
 
@@ -238,7 +241,6 @@
         rgba(222, 191, 115, 0.48);
 
       font-size: 10px;
-
       letter-spacing: 5px;
     }
 
@@ -251,6 +253,8 @@
       letter-spacing: 5px;
 
       line-height: 1.25;
+
+      word-break: keep-all;
     }
 
     .section-eng {
@@ -262,7 +266,6 @@
         rgba(220, 199, 150, 0.63);
 
       font-size: 13px;
-
       font-weight: 400;
 
       letter-spacing: 5px;
@@ -308,12 +311,12 @@
 
       display: block;
 
+      filter:
+        brightness(0.94);
+
       transition:
         transform 0.7s ease,
         filter 0.6s ease;
-
-      filter:
-        brightness(0.94);
     }
 
     .world-image-wrap:hover .world-image {
@@ -325,13 +328,14 @@
 
 
     /* ==================================================
-       설명
+       설명 박스
     ================================================== */
 
     .lore-box {
       width: 100%;
-
       max-width: 940px;
+
+      height: auto;
 
       padding:
         34px
@@ -384,9 +388,11 @@
         0
         2px;
 
-      color: #fff8e8 !important;
+      color:
+        #fff8e8 !important;
 
-      font-size: 17px !important;
+      font-size:
+        17px !important;
 
       font-weight: 600;
 
@@ -395,7 +401,7 @@
 
 
     /* ==================================================
-       실낙원은 약간 밝은 포인트
+       실낙원
     ================================================== */
 
     .paradise-section .section-title {
@@ -453,6 +459,8 @@
     ================================================== */
 
     .backstage-sides {
+      width: 100%;
+
       display: grid;
 
       grid-template-columns:
@@ -461,10 +469,19 @@
       gap: 34px;
 
       margin-top: 75px;
+
+      /* 중요: 서로 높이 강제로 맞추지 않음 */
+      align-items: start;
     }
 
     .side-card {
+      width: 100%;
+
       min-width: 0;
+
+      height: auto;
+
+      align-self: start;
     }
 
     .side-card .section-heading {
@@ -480,8 +497,13 @@
       margin-bottom: 27px;
     }
 
+    /* 핵심 수정 부분 */
     .side-card .lore-box {
-      height: 100%;
+      width: 100%;
+
+      max-width: none;
+
+      height: auto;
 
       padding:
         28px
@@ -492,6 +514,7 @@
 
     .side-card .lore-box p {
       font-size: 14px;
+
       line-height: 1.95;
     }
 
@@ -527,16 +550,20 @@
     ================================================== */
 
     .cain-section {
+      width: calc(100% - 40px);
+
       max-width: 900px;
 
       margin:
-        140px
+        100px
         auto
         40px;
 
       padding:
         65px
         60px;
+
+      clear: both;
 
       text-align: center;
 
@@ -561,6 +588,7 @@
         rgba(222, 195, 128, 0.52);
 
       font-size: 10px;
+
       letter-spacing: 6px;
     }
 
@@ -602,11 +630,14 @@
     }
 
     .cain-secret {
-      margin-top: 31px !important;
+      margin-top:
+        31px !important;
 
-      color: #f4ead0 !important;
+      color:
+        #f4ead0 !important;
 
-      font-size: 17px !important;
+      font-size:
+        17px !important;
 
       font-weight: 600;
     }
@@ -635,7 +666,7 @@
 
     /* ==================================================
        TABLET
-       701 ~ 1100
+       701px ~ 1100px
     ================================================== */
 
     @media
@@ -678,21 +709,37 @@
         max-width: none;
       }
 
-      /* 태블릿에선 동/서 세로 */
+
+      /* 패드에서는 동부/서부 세로 */
 
       .backstage-sides {
-        grid-template-columns:
-          1fr;
+        grid-template-columns: 1fr;
 
-        gap: 90px;
+        gap: 85px;
+
+        margin-top: 65px;
+
+        align-items: start;
       }
 
-      .side-card .section-title {
-        font-size: 36px;
+      .side-card {
+        height: auto;
       }
+
+      .side-card .lore-box {
+        height: auto;
+      }
+
+
+      /* 카인 완전히 분리 */
 
       .cain-section {
-        margin-top: 115px;
+        width: calc(100% - 20px);
+
+        margin:
+          90px
+          auto
+          40px;
 
         padding:
           55px
@@ -704,28 +751,33 @@
 
     /* ==================================================
        MOBILE
-       700 이하
+       700px 이하
     ================================================== */
 
     @media (max-width: 700px) {
 
       .world-page {
         padding:
-          65px
+          70px
           14px
           70px;
       }
 
 
-      /* BACK */
+      /* ----------------------------------------------
+         BACK
+         모바일에서는 따라오지 않음
+      ---------------------------------------------- */
 
       .back-button {
-        top: 13px;
-        left: 13px;
+        position: absolute;
+
+        top: 14px;
+        left: 14px;
 
         padding:
           8px
-          10px;
+          11px;
 
         font-size: 10px;
 
@@ -733,15 +785,17 @@
       }
 
 
-      /* INTRO */
+      /* ----------------------------------------------
+         INTRO
+      ---------------------------------------------- */
 
       .world-header {
-        min-height: 72vh;
+        min-height: 70vh;
 
         padding:
-          75px
+          70px
           8px
-          80px;
+          75px;
       }
 
       .world-kicker {
@@ -767,11 +821,11 @@
       }
 
       .intro-line {
+        width: 55px;
+
         margin:
           32px
           auto;
-
-        width: 55px;
       }
 
       .world-intro {
@@ -783,13 +837,19 @@
       }
 
 
-      /* SECTION */
+      /* ----------------------------------------------
+         SECTION
+      ---------------------------------------------- */
 
       .world-section {
-        margin-bottom: 90px;
+        width: 100%;
+
+        margin-bottom: 85px;
       }
 
       .section-heading {
+        width: 100%;
+
         margin-bottom: 23px;
       }
 
@@ -804,6 +864,8 @@
           clamp(30px, 10vw, 41px);
 
         letter-spacing: 3px;
+
+        line-height: 1.25;
       }
 
       .section-eng {
@@ -815,15 +877,19 @@
       }
 
       .heading-line {
-        margin-top: 14px;
-
         width: 40px;
+
+        margin-top: 14px;
       }
 
 
-      /* 이미지 */
+      /* ----------------------------------------------
+         이미지
+      ---------------------------------------------- */
 
       .world-image-wrap {
+        width: 100%;
+
         margin-bottom: 22px;
 
         box-shadow:
@@ -835,9 +901,17 @@
       }
 
 
-      /* 글 */
+      /* ----------------------------------------------
+         일반 설명
+      ---------------------------------------------- */
 
       .lore-box {
+        width: 100%;
+
+        max-width: none;
+
+        height: auto;
+
         padding:
           24px
           19px;
@@ -856,28 +930,68 @@
       }
 
       .highlight-line {
-        margin-top: 24px !important;
+        margin-top:
+          24px !important;
 
-        font-size: 14px !important;
+        font-size:
+          14px !important;
       }
 
 
-      /* 동서부 */
+      /* ----------------------------------------------
+         동부 / 서부
+      ---------------------------------------------- */
 
       .backstage-sides {
-        grid-template-columns:
-          1fr;
+        width: 100%;
 
-        gap: 75px;
+        display: grid;
 
-        margin-top: 60px;
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+
+        margin-top: 45px;
+
+        align-items: start;
+      }
+
+      .side-card {
+        width: 100%;
+
+        min-width: 0;
+
+        height: auto;
+
+        align-self: start;
+      }
+
+      .side-card .section-heading {
+        width: 100%;
+
+        margin-bottom: 18px;
       }
 
       .side-card .section-title {
-        font-size: 30px;
+        font-size:
+          clamp(28px, 9vw, 36px);
+
+        letter-spacing: 2px;
+      }
+
+      .side-card .world-image-wrap {
+        width: 100%;
+
+        margin-bottom: 22px;
       }
 
       .side-card .lore-box {
+        width: 100%;
+
+        max-width: none;
+
+        height: auto;
+
         padding:
           23px
           18px;
@@ -885,20 +999,30 @@
 
       .side-card .lore-box p {
         font-size: 13px;
+
+        line-height: 1.9;
       }
 
 
-      /* CAIN */
+      /* ----------------------------------------------
+         CAIN
+      ---------------------------------------------- */
 
       .cain-section {
+        width: 100%;
+
+        max-width: none;
+
         margin:
-          90px
+          55px
           0
           20px;
 
         padding:
-          47px
-          21px;
+          46px
+          20px;
+
+        clear: both;
       }
 
       .cain-label {
@@ -928,9 +1052,14 @@
       }
 
       .cain-secret {
-        font-size: 14px !important;
+        font-size:
+          14px !important;
       }
 
+
+      /* ----------------------------------------------
+         FOOTER
+      ---------------------------------------------- */
 
       .world-footer {
         padding-top: 65px;
@@ -949,9 +1078,9 @@
 <body>
 
 
-  <!-- ==============================================
-       메인으로
-  =============================================== -->
+  <!-- ==================================================
+       BACK
+  ================================================== -->
 
   <a
     href="index.html"
@@ -966,9 +1095,9 @@
     <div class="world-container">
 
 
-      <!-- ==========================================
-           WORLD
-      =========================================== -->
+      <!-- ==================================================
+           WORLD INTRO
+      ================================================== -->
 
       <header class="world-header">
 
@@ -1017,9 +1146,9 @@
 
 
 
-      <!-- ==========================================
+      <!-- ==================================================
            01 실낙원
-      =========================================== -->
+      ================================================== -->
 
       <section class="world-section paradise-section">
 
@@ -1030,10 +1159,13 @@
           </span>
 
           <h2 class="section-title">
+
             실낙원
+
             <span class="section-eng">
               PARADISE LOST
             </span>
+
           </h2>
 
           <div class="heading-line"></div>
@@ -1045,7 +1177,7 @@
 
           <img
             class="world-image"
-            src="배경_실낙원.png"
+            src="배경_실낙원.png?v=4"
             alt="실낙원">
 
         </div>
@@ -1054,7 +1186,8 @@
         <div class="lore-box">
 
           <p>
-            실낙원은 약 <strong>???년 전</strong>
+            실낙원은 약
+            <strong>???년 전</strong>
             시작된 대규모 인류 사회 프로젝트다.
           </p>
 
@@ -1120,9 +1253,9 @@
 
 
 
-      <!-- ==========================================
+      <!-- ==================================================
            02 카라
-      =========================================== -->
+      ================================================== -->
 
       <section class="world-section khara-section">
 
@@ -1133,10 +1266,13 @@
           </span>
 
           <h2 class="section-title">
+
             카라
+
             <span class="section-eng">
               χαρά
             </span>
+
           </h2>
 
           <div class="heading-line"></div>
@@ -1148,7 +1284,7 @@
 
           <img
             class="world-image"
-            src="배경_카라.png"
+            src="배경_카라.png?v=4"
             alt="카라">
 
         </div>
@@ -1159,7 +1295,8 @@
           <p>
             약 100년 전,
             실낙원 건설과 함께
-            정체불명의 <strong>???</strong>가 설치한 장치.
+            정체불명의
+            <strong>???</strong>가 설치한 장치.
           </p>
 
           <p>
@@ -1191,9 +1328,9 @@
 
 
 
-      <!-- ==========================================
+      <!-- ==================================================
            03 에초브
-      =========================================== -->
+      ================================================== -->
 
       <section class="world-section echev-section">
 
@@ -1204,6 +1341,7 @@
           </span>
 
           <h2 class="section-title">
+
             에초브
 
             <span class="section-eng">
@@ -1221,7 +1359,7 @@
 
           <img
             class="world-image"
-            src="배경_에초브.png"
+            src="배경_에초브.png?v=4"
             alt="에초브 기지">
 
         </div>
@@ -1242,8 +1380,7 @@
           <p>
             본래 카라가 물질 X를 살포하는 장치라면,
             에초브는 그것을
-            <strong>물질 X를 분해하는 장치</strong>로
-            전환하는 기술을 이용해
+            <strong>물질 X를 분해하는 장치</strong>로 전환하는 기술을 이용해
             지상과 지하를 가르는 장벽을 무력화하고자 한다.
           </p>
 
@@ -1268,8 +1405,7 @@
 
           <p>
             심지어 서로 다른 국경과 문화를
-            배경으로 살아온 이들까지
-            한데 모여 있다.
+            배경으로 살아온 이들까지 한데 모여 있다.
           </p>
 
           <p>
@@ -1286,9 +1422,9 @@
 
 
 
-      <!-- ==========================================
+      <!-- ==================================================
            04 백스테이지
-      =========================================== -->
+      ================================================== -->
 
       <section class="world-section backstage-section">
 
@@ -1299,6 +1435,7 @@
           </span>
 
           <h2 class="section-title">
+
             백스테이지
 
             <span class="section-eng">
@@ -1316,7 +1453,7 @@
 
           <img
             class="world-image"
-            src="배경_백스테이지.png"
+            src="배경_백스테이지.png?v=4"
             alt="백스테이지">
 
         </div>
@@ -1326,8 +1463,10 @@
 
           <p>
             백스테이지는
-            <strong>기술 만능주의를 신봉하는
-            고도 기술 결사체</strong>다.
+            <strong>
+              기술 만능주의를 신봉하는
+              고도 기술 결사체
+            </strong>다.
           </p>
 
           <p>
@@ -1364,9 +1503,9 @@
 
 
 
-        <!-- ======================================
+        <!-- ==================================================
              EAST / WEST
-        ======================================= -->
+        ================================================== -->
 
         <div class="backstage-sides">
 
@@ -1382,6 +1521,7 @@
               </span>
 
               <h3 class="section-title">
+
                 백스테이지 동부
 
                 <span class="section-eng">
@@ -1399,7 +1539,7 @@
 
               <img
                 class="world-image"
-                src="배경_백스 동양.png"
+                src="배경_백스 동양.png?v=4"
                 alt="백스테이지 동부">
 
             </div>
@@ -1461,6 +1601,7 @@
               </span>
 
               <h3 class="section-title">
+
                 백스테이지 서부
 
                 <span class="section-eng">
@@ -1478,7 +1619,7 @@
 
               <img
                 class="world-image"
-                src="배경_백스 서양.png"
+                src="배경_백스 서양.png?v=4"
                 alt="백스테이지 서부">
 
             </div>
@@ -1522,15 +1663,16 @@
 
           </article>
 
+
         </div>
 
       </section>
 
 
 
-      <!-- ==========================================
+      <!-- ==================================================
            카인
-      =========================================== -->
+      ================================================== -->
 
       <section class="cain-section">
 
@@ -1576,9 +1718,9 @@
 
 
 
-      <!-- ==========================================
+      <!-- ==================================================
            FOOTER
-      =========================================== -->
+      ================================================== -->
 
       <footer class="world-footer">
         웃음꽃이 피었습니다 · WORLD ARCHIVE
